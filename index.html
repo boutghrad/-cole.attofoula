@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="مدرسة عالم الطفولة الابتدائية تقدم تعليمًا متميزًا ومتكاملاً للأطفال مع فريق تربوي متخصص." />
-  <title>مدرسة عالم الطفولة الابتدائية</title>
+  <title>مدونة مدرسة عالم الطفولة الابتدائية</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -215,124 +215,238 @@
       font-size: 1.1rem;
     }
 
-    /* Services Section */
-    .services-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .service-card {
-      background: white;
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      box-shadow: var(--box-shadow);
-      transition: var(--transition);
-    }
-
-    .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .service-img {
-      height: 200px;
-      overflow: hidden;
-    }
-
-    .service-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: var(--transition);
-    }
-
-    .service-card:hover .service-img img {
-      transform: scale(1.1);
-    }
-
-    .service-content {
-      padding: 25px;
-    }
-
-    .service-content h3 {
-      color: var(--primary-color);
-      margin-bottom: 15px;
-      font-size: 1.4rem;
-    }
-
-    .service-content p {
-      margin-bottom: 20px;
-      color: var(--text-color);
-    }
-
-    .service-icon {
-      font-size: 2.5rem;
-      color: var(--secondary-color);
-      margin-bottom: 15px;
-    }
-
-    /* Team Section */
-    .team-section {
+    /* Blog Section */
+    .blog-section {
       background-color: var(--light-color);
     }
 
-    .team-container {
+    .blog-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 30px;
     }
 
-    .team-card {
+    .blog-card {
       background: white;
       border-radius: var(--border-radius);
       overflow: hidden;
       box-shadow: var(--box-shadow);
-      text-align: center;
       transition: var(--transition);
     }
 
-    .team-card:hover {
+    .blog-card:hover {
       transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     }
 
-    .team-img {
-      height: 280px;
+    .blog-img {
+      height: 220px;
       overflow: hidden;
     }
 
-    .team-img img {
+    .blog-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .blog-card:hover .blog-img img {
+      transform: scale(1.1);
+    }
+
+    .blog-content {
+      padding: 25px;
+    }
+
+    .blog-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .blog-category {
+      background: rgba(76, 175, 80, 0.1);
+      color: var(--primary-color);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    .blog-date {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .blog-content h3 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+      min-height: 60px;
+    }
+
+    .blog-content p {
+      margin-bottom: 20px;
+      color: var(--text-color);
+      line-height: 1.8;
+    }
+
+    .read-more {
+      color: var(--accent-color);
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: var(--transition);
+    }
+
+    .read-more:hover {
+      color: var(--primary-color);
+      gap: 10px;
+    }
+
+    /* Blog Post */
+    .blog-post {
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      overflow: hidden;
+      margin-bottom: 50px;
+    }
+
+    .post-header {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(rgba(76, 175, 80, 0.9), rgba(76, 175, 80, 0.9));
+      color: white;
+    }
+
+    .post-header .blog-category {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    .post-header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    .post-meta {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 0.95rem;
+    }
+
+    .post-img {
+      height: 450px;
+      overflow: hidden;
+    }
+
+    .post-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .team-info {
-      padding: 20px;
+    .post-content {
+      padding: 50px;
+      line-height: 1.8;
     }
 
-    .team-info h3 {
+    .post-content h2 {
+      color: var(--primary-color);
+      margin: 30px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .post-content p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .post-content ul {
+      padding-right: 20px;
+      margin-bottom: 20px;
+    }
+
+    .post-content li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-right: 20px;
+    }
+
+    .post-content li::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 10px;
+      width: 8px;
+      height: 8px;
+      background: var(--secondary-color);
+      border-radius: 50%;
+    }
+
+    .quote {
+      background: rgba(76, 175, 80, 0.05);
+      border-right: 4px solid var(--primary-color);
+      padding: 20px;
+      margin: 30px 0;
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      font-style: italic;
+    }
+
+    .author-box {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: var(--border-radius);
+      margin: 40px 0;
+    }
+
+    .author-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .author-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .author-info h4 {
       color: var(--primary-color);
       margin-bottom: 5px;
     }
 
-    .team-info p.position {
-      color: var(--secondary-color);
-      font-weight: 500;
-      margin-bottom: 15px;
+    .author-info p {
+      color: #666;
+      margin-bottom: 10px;
     }
 
     .social-links {
       display: flex;
-      justify-content: center;
-      gap: 15px;
+      gap: 10px;
     }
 
     .social-links a {
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      background: #f0f0f0;
+      background: #eee;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -343,274 +457,30 @@
     .social-links a:hover {
       background: var(--primary-color);
       color: white;
-      transform: translateY(-3px);
     }
 
-    /* News Section */
-    .news-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .news-card {
-      background: white;
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      box-shadow: var(--box-shadow);
-      transition: var(--transition);
-    }
-
-    .news-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .news-img {
-      height: 200px;
-      overflow: hidden;
-    }
-
-    .news-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: var(--transition);
-    }
-
-    .news-card:hover .news-img img {
-      transform: scale(1.1);
-    }
-
-    .news-content {
-      padding: 25px;
-    }
-
-    .news-date {
-      display: block;
-      color: var(--secondary-color);
-      margin-bottom: 10px;
-      font-weight: 500;
-    }
-
-    .news-content h3 {
+    .back-to-blog {
+      display: inline-block;
+      margin-top: 20px;
       color: var(--primary-color);
-      margin-bottom: 15px;
-      font-size: 1.3rem;
-    }
-
-    .news-content p {
-      margin-bottom: 20px;
-      color: var(--text-color);
-    }
-
-    .read-more {
-      color: var(--accent-color);
-      font-weight: 500;
       text-decoration: none;
-      display: inline-flex;
+      font-weight: 500;
+      display: flex;
       align-items: center;
       gap: 5px;
     }
 
-    .read-more:hover {
-      text-decoration: underline;
-    }
-
-    /* Contact Section */
-    .contact-section {
-      background: linear-gradient(rgba(76, 175, 80, 0.9), rgba(76, 175, 80, 0.9)), 
-                  url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1080&q=80') center/cover;
-      color: white;
-    }
-
-    .contact-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-    }
-
-    .contact-info {
-      padding: 20px;
-    }
-
-    .contact-info h3 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      position: relative;
-      padding-bottom: 15px;
-    }
-
-    .contact-info h3::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 60px;
-      height: 3px;
-      background: var(--secondary-color);
-    }
-
-    .contact-details {
-      margin: 30px 0;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 25px;
-    }
-
-    .contact-icon {
-      font-size: 1.5rem;
-      color: var(--secondary-color);
-      margin-left: 15px;
-      min-width: 30px;
-      text-align: center;
-    }
-
-    .contact-text h4 {
-      font-size: 1.2rem;
-      margin-bottom: 5px;
-    }
-
-    .contact-form {
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: var(--border-radius);
-      padding: 30px;
-      box-shadow: var(--box-shadow);
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--dark-color);
-      font-weight: 500;
-    }
-
-    .form-control {
-      width: 100%;
-      padding: 12px 15px;
-      border: 1px solid #ddd;
-      border-radius: var(--border-radius);
-      font-family: 'Tajawal', sans-serif;
-      font-size: 1rem;
-      transition: var(--transition);
-    }
-
-    .form-control:focus {
-      border-color: var(--primary-color);
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
-    }
-
-    textarea.form-control {
-      min-height: 150px;
-      resize: vertical;
-    }
-
-    .contact-form .btn {
-      width: 100%;
-    }
-
-    /* Footer */
-    .footer {
-      background: var(--dark-color);
-      color: white;
-      padding: 60px 0 0;
-    }
-
-    .footer-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-    }
-
-    .footer-col h4 {
-      font-size: 1.3rem;
-      color: var(--secondary-color);
-      margin-bottom: 25px;
-      position: relative;
-      padding-bottom: 10px;
-    }
-
-    .footer-col h4::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 40px;
-      height: 2px;
-      background: var(--primary-color);
-    }
-
-    .footer-col p {
-      margin-bottom: 20px;
-      line-height: 1.8;
-    }
-
-    .footer-links {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: 12px;
-    }
-
-    .footer-links a {
-      color: #ddd;
-      text-decoration: none;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .footer-links a:hover {
-      color: var(--secondary-color);
-      transform: translateX(5px);
-    }
-
-    .footer-links a i {
-      color: var(--primary-color);
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .footer-social a {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.2rem;
-      transition: var(--transition);
-    }
-
-    .footer-social a:hover {
-      background: var(--primary-color);
-      transform: translateY(-5px);
-    }
-
-    .copyright {
-      text-align: center;
-      padding: 20px 0;
-      margin-top: 50px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
     /* Responsive Styles */
+    @media (max-width: 992px) {
+      .post-img {
+        height: 350px;
+      }
+      
+      .post-content {
+        padding: 30px;
+      }
+    }
+
     @media (max-width: 768px) {
       .mobile-menu-btn {
         display: block;
@@ -649,6 +519,26 @@
       .section-title h2 {
         font-size: 1.8rem;
       }
+      
+      .post-img {
+        height: 250px;
+      }
+      
+      .author-box {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .post-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .post-meta {
+        flex-direction: column;
+        gap: 10px;
+      }
     }
   </style>
 </head>
@@ -663,10 +553,11 @@
         </div>
       </div>
       <ul class="nav-links">
-        <li><a href="#" class="active">الرئيسية</a></li>
+        <li><a href="index.html">الرئيسية</a></li>
         <li><a href="#services">الخدمات</a></li>
         <li><a href="#team">فريق العمل</a></li>
         <li><a href="#news">الأخبار</a></li>
+        <li><a href="#" class="active">المدونة</a></li>
         <li><a href="#contact">التواصل</a></li>
       </ul>
       <div class="mobile-menu-btn">
@@ -675,295 +566,221 @@
     </div>
   </nav>
 
-  <section class="hero" id="home">
+  <!-- Blog Hero Section -->
+  <section class="hero">
     <div class="container">
       <div class="hero-content" data-aos="zoom-in">
-        <h1>مرحباً بكم في عالم الطفولة الابتدائية</h1>
-        <p>نقدم بيئة تعليمية محفزة وملهمة حيث ينمو طفلك أكاديمياً واجتماعياً وعاطفياً.</p>
-        <div class="hero-buttons">
-          <a href="#contact" class="btn btn-primary">التسجيل الآن</a>
-          <a href="#virtual-tour" class="btn btn-outline">جولة افتراضية</a>
-        </div>
+        <h1>مدونة تربوية وتعليمية</h1>
+        <p>استكشف مقالاتنا التعليمية المفيدة حول تنمية الطفل وتطوير المهارات والتربية الحديثة</p>
       </div>
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section id="services">
+  <!-- Blog Section -->
+  <section class="blog-section" id="blog">
     <div class="container">
       <div class="section-title" data-aos="fade-up">
-        <h2>خدماتنا التعليمية</h2>
-        <p>نقدم مجموعة متنوعة من الخدمات التعليمية والتربوية لدعم نمو طفلك الشامل</p>
+        <h2>مقالات تربوية وتعليمية</h2>
+        <p>أحدث المقالات والموارد التعليمية لدعم نمو طفلك وتطوير مهاراته</p>
       </div>
       
-      <div class="services-container">
-        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="service-img">
+      <div class="blog-container">
+        <!-- Blog 1: التعليم التفاعلي -->
+        <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="blog-img">
             <img src="https://images.unsplash.com/photo-1588072432904-843af37f03ed?auto=format&fit=crop&w=600&q=80" alt="التعليم التفاعلي">
           </div>
-          <div class="service-content">
-            <div class="service-icon">
-              <i class="fas fa-laptop"></i>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-category">تعليمي</span>
+              <span class="blog-date"><i class="far fa-calendar"></i> ١٠ يونيو ٢٠٢٤</span>
             </div>
-            <h3>التعليم التفاعلي</h3>
-            <p>فصول دراسية مجهزة بأحدث التقنيات التعليمية لتحفيز التفكير الإبداعي والمشاركة النشطة</p>
-            <a href="#" class="btn btn-outline">المزيد</a>
+            <h3>التعليم التفاعلي: مستقبل التعلم في القرن الحادي والعشرين</h3>
+            <p>كيف يمكن للتعليم التفاعلي أن يحول تجربة التعلم لطفلك؟ استكشف فوائد وأساليب التعليم التفاعلي في تطوير مهارات التفكير النقدي والإبداع.</p>
+            <a href="#blog1" class="read-more">قراءة المقال <i class="fas fa-arrow-left"></i></a>
           </div>
         </div>
         
-        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="service-img">
+        <!-- Blog 2: الأنشطة الإبداعية -->
+        <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="blog-img">
             <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="الأنشطة الإبداعية">
           </div>
-          <div class="service-content">
-            <div class="service-icon">
-              <i class="fas fa-paint-brush"></i>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-category">إبداع</span>
+              <span class="blog-date"><i class="far fa-calendar"></i> ٢٥ مايو ٢٠٢٤</span>
             </div>
-            <h3>الأنشطة الإبداعية</h3>
-            <p>ورش عمل فنية وموسيقية ومسرحية لتنمية المواهب وتعزيز الثقة بالنفس</p>
-            <a href="#" class="btn btn-outline">المزيد</a>
+            <h3>تنمية الإبداع عند الأطفال: الأنشطة والفعاليات الفنية</h3>
+            <p>اكتشف مجموعة من الأنشطة الإبداعية التي تحفز خيال طفلك وتنمي مواهبه الفنية. دليل شامل للأنشطة المناسبة لكل فئة عمرية.</p>
+            <a href="#blog2" class="read-more">قراءة المقال <i class="fas fa-arrow-left"></i></a>
           </div>
         </div>
         
-        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="service-img">
+        <!-- Blog 3: الدعم النفسي -->
+        <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="blog-img">
             <img src="https://images.unsplash.com/photo-1476231682828-37e571bc172f?auto=format&fit=crop&w=600&q=80" alt="الدعم النفسي">
           </div>
-          <div class="service-content">
-            <div class="service-icon">
-              <i class="fas fa-hands-helping"></i>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-category">نفسي</span>
+              <span class="blog-date"><i class="far fa-calendar"></i> ١٢ مايو ٢٠٢٤</span>
             </div>
-            <h3>الدعم النفسي والاجتماعي</h3>
-            <p>برامج متخصصة لرعاية النمو العاطفي والاجتماعي للأطفال بمتابعة أخصائيين</p>
-            <a href="#" class="btn btn-outline">المزيد</a>
+            <h3>الدعم النفسي للأطفال: كيفية بناء ثقة الطفل بنفسه</h3>
+            <p>أهمية الدعم النفسي في مرحلة الطفولة وكيف يمكن للوالدين والمعلمين بناء ثقة الطفل بنفسه وتطوير مهاراته الاجتماعية.</p>
+            <a href="#blog3" class="read-more">قراءة المقال <i class="fas fa-arrow-left"></i></a>
           </div>
+        </div>
+        
+        <!-- Blog 4: الرحلات التعليمية -->
+        <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="blog-img">
+            <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=600&q=80" alt="الرحلات التعليمية">
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-category">رحلات</span>
+              <span class="blog-date"><i class="far fa-calendar"></i> ٢٨ أبريل ٢٠٢٤</span>
+            </div>
+            <h3>فوائد الرحلات التعليمية في تنمية معارف الأطفال</h3>
+            <p>كيف تساهم الرحلات التعليمية في توسيع آفاق الأطفال؟ دليل لأفضل الوجهات التعليمية وفوائدها التربوية.</p>
+            <a href="#blog4" class="read-more">قراءة المقال <i class="fas fa-arrow-left"></i></a>
+          </div>
+        </div>
+        
+        <!-- Blog 5: البرامج الصيفية -->
+        <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="blog-img">
+            <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=600&q=80" alt="البرامج الصيفية">
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-category">صيفي</span>
+              <span class="blog-date"><i class="far fa-calendar"></i> ١٥ أبريل ٢٠٢٤</span>
+            </div>
+            <h3>البرامج الصيفية: كيف تستثمر إجازة طفلك بشكل مفيد</h3>
+            <p>أفضل البرامج الصيفية التعليمية والترفيهية التي تنمي مهارات طفلك وتستثمر وقت الإجازة بشكل مثمر.</p>
+            <a href="#blog5" class="read-more">قراءة المقال <i class="fas fa-arrow-left"></i></a>
+          </div>
+        </div>
+        
+        <!-- Blog 6: التغذية الصحية -->
+        <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="blog-img">
+            <img src="https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?auto=format&fit=crop&w=600&q=80" alt="التغذية الصحية">
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-category">صحة</span>
+              <span class="blog-date"><i class="far fa-calendar"></i> ٢ أبريل ٢٠٢٤</span>
+            </div>
+            <h3>التغذية الصحية للأطفال: دليل الأطعمة المعززة للتعلم</h3>
+            <p>كيف تؤثر التغذية على قدرات الطفل التعليمية؟ تعرف على الأطعمة المعززة للتركيز والذاكرة ونمو الدماغ.</p>
+            <a href="#blog6" class="read-more">قراءة المقال <i class="fas fa-arrow-left"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pagination -->
+      <div style="text-align: center; margin-top: 50px;">
+        <div class="pagination">
+          <a href="#" class="btn btn-outline"><i class="fas fa-arrow-right"></i> السابق</a>
+          <a href="#" class="btn btn-primary">1</a>
+          <a href="#" class="btn btn-outline">2</a>
+          <a href="#" class="btn btn-outline">3</a>
+          <a href="#" class="btn btn-outline">التالي <i class="fas fa-arrow-left"></i></a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Team Section -->
-  <section id="team" class="team-section">
+  <!-- Blog Post Example: التعليم التفاعلي -->
+  <section id="blog1" class="blog-post-section" style="display: none;">
     <div class="container">
-      <div class="section-title" data-aos="fade-up">
-        <h2>فريق العمل</h2>
-        <p>معلمون ومربون ذوو خبرة وكفاءة عالية لرعاية أبنائكم وتنمية قدراتهم</p>
-      </div>
+      <a href="#blog" class="back-to-blog"><i class="fas fa-arrow-right"></i> العودة إلى المدونة</a>
       
-      <div class="team-container">
-        <div class="team-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="team-img">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" alt="أ. سارة أحمد">
-          </div>
-          <div class="team-info">
-            <h3>أ. سارة أحمد</h3>
-            <p class="position">مديرة المدرسة</p>
-            <p>خبرة 15 عاماً في الإدارة التربوية والتعليم المبكر</p>
-            <div class="social-links">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
+      <div class="blog-post">
+        <div class="post-header">
+          <span class="blog-category">تعليمي</span>
+          <h1>التعليم التفاعلي: مستقبل التعلم في القرن الحادي والعشرين</h1>
+          <div class="post-meta">
+            <span><i class="far fa-user"></i> أ. سارة أحمد</span>
+            <span><i class="far fa-calendar"></i> ١٠ يونيو ٢٠٢٤</span>
+            <span><i class="far fa-clock"></i> قراءة ٦ دقائق</span>
           </div>
         </div>
         
-        <div class="team-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="team-img">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="أ. محمد خالد">
-          </div>
-          <div class="team-info">
-            <h3>أ. محمد خالد</h3>
-            <p class="position">مشرف تربوي</p>
-            <p>ماجستير في المناهج وطرق التدريس، خبرة 12 عاماً</p>
-            <div class="social-links">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-          </div>
+        <div class="post-img">
+          <img src="https://images.unsplash.com/photo-1588072432904-843af37f03ed?auto=format&fit=crop&w=1200&q=80" alt="التعليم التفاعلي">
         </div>
         
-        <div class="team-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="team-img">
-            <img src="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?auto=format&fit=crop&w=600&q=80" alt="أ. فاطمة عمر">
-          </div>
-          <div class="team-info">
-            <h3>أ. فاطمة عمر</h3>
-            <p class="position">معلمة الصف الأول</p>
-            <p>متخصصة في التعليم التفاعلي وتنمية المهارات الأساسية</p>
-            <div class="social-links">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="team-card" data-aos="fade-up" data-aos-delay="400">
-          <div class="team-img">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="أ. ليلى سامي">
-          </div>
-          <div class="team-info">
-            <h3>أ. ليلى سامي</h3>
-            <p class="position">أخصائية نفسية</p>
-            <p>دعم نفسي واجتماعي للأطفال وتوجيه أولياء الأمور</p>
-            <div class="social-links">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- News Section -->
-  <section id="news">
-    <div class="container">
-      <div class="section-title" data-aos="fade-up">
-        <h2>أخبار وفعاليات المدرسة</h2>
-        <p>تابع آخر أخبارنا وفعالياتنا المدرسية وأنشطتنا التربوية</p>
-      </div>
-      
-      <div class="news-container">
-        <div class="news-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="news-img">
-            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=600&q=80" alt="حفل التخرج">
-          </div>
-          <div class="news-content">
-            <span class="news-date">١٥ يونيو ٢٠٢٤</span>
-            <h3>حفل تخرج الدفعة العاشرة من طلاب الصف السادس</h3>
-            <p>احتفلت مدرستنا بتخريج الدفعة العاشرة من طلاب الصف السادس بحضور أولياء الأمور والمسؤولين التربويين.</p>
-            <a href="#" class="read-more">قراءة المزيد <i class="fas fa-arrow-left"></i></a>
-          </div>
-        </div>
-        
-        <div class="news-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="news-img">
-            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80" alt="مسابقة العلوم">
-          </div>
-          <div class="news-content">
-            <span class="news-date">٣٠ مايو ٢٠٢٤</span>
-            <h3>فوز طلابنا بالمركز الأول في مسابقة العلوم الإقليمية</h3>
-            <p>حقق فريق العلوم في مدرستنا المركز الأول على مستوى المنطقة في مسابقة الابتكارات العلمية لهذا العام.</p>
-            <a href="#" class="read-more">قراءة المزيد <i class="fas fa-arrow-left"></i></a>
-          </div>
-        </div>
-        
-        <div class="news-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="news-img">
-            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="ورشة فنية">
-          </div>
-          <div class="news-content">
-            <span class="news-date">١٠ مايو ٢٠٢٤</span>
-            <h3>ورشة عمل فنية بعنوان "الطفل والفن التشكيلي"</h3>
-            <p>نظمت المدرسة ورشة عمل فنية للأطفال بهدف تنمية المهارات الإبداعية وتشجيع التعبير الفني.</p>
-            <a href="#" class="read-more">قراءة المزيد <i class="fas fa-arrow-left"></i></a>
-          </div>
-        </div>
-      </div>
-      
-      <div style="text-align: center; margin-top: 40px;">
-        <a href="#" class="btn btn-secondary">عرض جميع الأخبار</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact-section">
-    <div class="container">
-      <div class="section-title" data-aos="fade-up">
-        <h2 style="color: white;">تواصل معنا</h2>
-        <p style="color: rgba(255,255,255,0.8);">يسعدنا تواصلكم معنا لأي استفسار أو تسجيل أبنائكم</p>
-      </div>
-      
-      <div class="contact-container">
-        <div class="contact-info" data-aos="fade-right">
-          <h3>معلومات التواصل</h3>
-          <p>يسعدنا تواصلكم معنا عبر قنوات التواصل المختلفة أو زيارة مقر المدرسة خلال ساعات العمل</p>
+        <div class="post-content">
+          <p>في عصر التكنولوجيا والتطور السريع، أصبح التعليم التفاعلي حجر الزاوية في العملية التعليمية الحديثة. لم يعد التعلم التقليدي القائم على التلقين والحفظ كافياً لإعداد الأطفال لمتطلبات المستقبل. التعليم التفاعلي يشكل بيئة تعليمية ديناميكية تحفز التفكير النقدي والإبداع لدى الأطفال.</p>
           
-          <div class="contact-details">
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
-              <div class="contact-text">
-                <h4>العنوان</h4>
-                <p>شارع التعليم، حي الروضة، الرياض، المملكة العربية السعودية</p>
-              </div>
-            </div>
-            
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-phone-alt"></i>
-              </div>
-              <div class="contact-text">
-                <h4>الهاتف</h4>
-                <p>+966 11 123 4567</p>
-              </div>
-            </div>
-            
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div class="contact-text">
-                <h4>البريد الإلكتروني</h4>
-                <p>info@alam-altufula.edu.sa</p>
-              </div>
-            </div>
-            
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-clock"></i>
-              </div>
-              <div class="contact-text">
-                <h4>ساعات العمل</h4>
-                <p>الأحد - الخميس: 7:30 صباحاً - 2:30 ظهراً</p>
-              </div>
-            </div>
+          <h2>ما هو التعليم التفاعلي؟</h2>
+          <p>التعليم التفاعلي هو منهج تعليمي يعتمد على مشاركة الطالب الفعالة في العملية التعليمية، حيث يصبح المتعلم محوراً أساسياً بدلاً من أن يكون متلقياً سلبياً. هذا النهج يشمل:</p>
+          <ul>
+            <li>استخدام التكنولوجيا التعليمية الحديثة</li>
+            <li>التعلم القائم على المشاريع والتجارب</li>
+            <li>الأنشطة الجماعية والعمل التعاوني</li>
+            <li>التعلم من خلال اللعب والمحاكاة</li>
+            <li>التغذية الراجعة الفورية والتقييم التكويني</li>
+          </ul>
+          
+          <div class="quote">
+            <p>"التعليم التفاعلي ليس مجرد أداة تعليمية، بل هو فلسفة تربوية تضع الطالب في مركز العملية التعليمية وتنمي قدراته على حل المشكلات والتفكير الإبداعي"</p>
           </div>
           
-          <div class="footer-social">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+          <h2>فوائد التعليم التفاعلي</h2>
+          <p>يقدم التعليم التفاعلي مجموعة من الفوائد التربوية والنفسية للأطفال:</p>
+          
+          <h3>١. تنمية التفكير النقدي والإبداعي</h3>
+          <p>عندما يشارك الأطفال في أنشطة تفاعلية، يتعلمون تحليل المعلومات وربط المفاهيم بدلاً من حفظها. هذا النهج يحفز التفكير الإبداعي ويطور قدرات حل المشكلات.</p>
+          
+          <h3>٢. زيادة التحفيز والمشاركة</h3>
+          <p>التعليم التفاعلي يجعل عملية التعلم ممتعة وجذابة. الأطفال الذين يشاركون بنشاط في تعلمهم يكونون أكثر تحفيزاً ومشاركة في الفصل الدراسي.</p>
+          
+          <h3>٣. تطوير المهارات الاجتماعية</h3>
+          <p>من خلال العمل الجماعي والأنشطة التعاونية، يتعلم الأطفال مهارات التواصل الفعال، واحترام آراء الآخرين، والعمل ضمن فريق.</p>
+          
+          <h3>٤. تعزيز الاستقلالية والثقة بالنفس</h3>
+          <p>عندما يكتشف الأطفال المعرفة بأنفسهم، يطورون شعوراً بالإنجاز والثقة بقدراتهم. هذا يعزز استقلاليتهم ويشجعهم على تحمل مسؤولية تعلمهم.</p>
+          
+          <h2>استراتيجيات التعليم التفاعلي في مدرستنا</h2>
+          <p>في مدرسة عالم الطفولة، نطبق مجموعة من استراتيجيات التعليم التفاعلي:</p>
+          
+          <h3>فصول دراسية ذكية</h3>
+          <p>جميع فصولنا مجهزة بشاشات تفاعلية وأجهزة لوحية تسمح للأطفال بالتفاعل مع المحتوى التعليمي بشكل مباشر.</p>
+          
+          <h3>التعلم القائم على المشاريع</h3>
+          <p>ينفذ الطلاب مشاريع عملية تتحدى تفكيرهم وتشجعهم على البحث والتجريب والابتكار.</p>
+          
+          <h3>المختبرات العلمية التفاعلية</h3>
+          <p>مختبراتنا العلمية مجهزة بأحدث الأجهزة التي تسمح للأطفال بإجراء التجارب واكتشاف المفاهيم العلمية بأنفسهم.</p>
+          
+          <h3>الرحلات التعليمية الافتراضية</h3>
+          <p>باستخدام تقنيات الواقع الافتراضي، نأخذ طلابنا في رحلات افتراضية إلى متاحف ومعالم تاريخية حول العالم.</p>
+          
+          <div class="author-box">
+            <div class="author-img">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80" alt="أ. سارة أحمد">
+            </div>
+            <div class="author-info">
+              <h4>أ. سارة أحمد</h4>
+              <p>مديرة مدرسة عالم الطفولة الابتدائية، حاصلة على ماجستير في التربية الحديثة وتكنولوجيا التعليم.</p>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+              </div>
+            </div>
           </div>
-        </div>
-        
-        <div class="contact-form" data-aos="fade-left">
-          <h3 style="color: var(--primary-color); text-align: center; margin-bottom: 25px;">أرسل رسالتك إلينا</h3>
-          <form>
-            <div class="form-group">
-              <label for="name">الاسم الكامل</label>
-              <input type="text" id="name" class="form-control" placeholder="أدخل اسمك الكامل">
-            </div>
-            
-            <div class="form-group">
-              <label for="email">البريد الإلكتروني</label>
-              <input type="email" id="email" class="form-control" placeholder="أدخل بريدك الإلكتروني">
-            </div>
-            
-            <div class="form-group">
-              <label for="phone">رقم الهاتف</label>
-              <input type="tel" id="phone" class="form-control" placeholder="أدخل رقم هاتفك">
-            </div>
-            
-            <div class="form-group">
-              <label for="message">الرسالة</label>
-              <textarea id="message" class="form-control" placeholder="أدخل رسالتك هنا"></textarea>
-            </div>
-            
-            <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
-          </form>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-container">
@@ -981,30 +798,30 @@
         <div class="footer-col">
           <h4>روابط سريعة</h4>
           <ul class="footer-links">
-            <li><a href="#"><i class="fas fa-arrow-left"></i> الرئيسية</a></li>
-            <li><a href="#about"><i class="fas fa-arrow-left"></i> من نحن</a></li>
+            <li><a href="index.html"><i class="fas fa-arrow-left"></i> الرئيسية</a></li>
             <li><a href="#services"><i class="fas fa-arrow-left"></i> خدماتنا</a></li>
             <li><a href="#team"><i class="fas fa-arrow-left"></i> فريق العمل</a></li>
             <li><a href="#news"><i class="fas fa-arrow-left"></i> الأخبار</a></li>
+            <li><a href="#blog"><i class="fas fa-arrow-left"></i> المدونة</a></li>
             <li><a href="#contact"><i class="fas fa-arrow-left"></i> التواصل</a></li>
           </ul>
         </div>
         
         <div class="footer-col">
-          <h4>خدماتنا</h4>
+          <h4>مواضيع المدونة</h4>
           <ul class="footer-links">
-            <li><a href="#"><i class="fas fa-arrow-left"></i> التعليم التفاعلي</a></li>
-            <li><a href="#"><i class="fas fa-arrow-left"></i> الأنشطة الإبداعية</a></li>
-            <li><a href="#"><i class="fas fa-arrow-left"></i> الدعم النفسي</a></li>
-            <li><a href="#"><i class="fas fa-arrow-left"></i> الرحلات التعليمية</a></li>
-            <li><a href="#"><i class="fas fa-arrow-left"></i> البرامج الصيفية</a></li>
-            <li><a href="#"><i class="fas fa-arrow-left"></i> التغذية الصحية</a></li>
+            <li><a href="#blog1"><i class="fas fa-arrow-left"></i> التعليم التفاعلي</a></li>
+            <li><a href="#blog2"><i class="fas fa-arrow-left"></i> الأنشطة الإبداعية</a></li>
+            <li><a href="#blog3"><i class="fas fa-arrow-left"></i> الدعم النفسي</a></li>
+            <li><a href="#blog4"><i class="fas fa-arrow-left"></i> الرحلات التعليمية</a></li>
+            <li><a href="#blog5"><i class="fas fa-arrow-left"></i> البرامج الصيفية</a></li>
+            <li><a href="#blog6"><i class="fas fa-arrow-left"></i> التغذية الصحية</a></li>
           </ul>
         </div>
         
         <div class="footer-col">
           <h4>النشرة الإخبارية</h4>
-          <p>اشترك في نشرتنا الإخبارية لتصلك آخر أخبار المدرسة وفعالياتها</p>
+          <p>اشترك في نشرتنا الإخبارية لتصلك آخر أخبار المدرسة وفعالياتها ومقالاتنا التعليمية</p>
           <form style="margin-top: 20px;">
             <div class="form-group">
               <input type="email" class="form-control" placeholder="بريدك الإلكتروني">
@@ -1024,11 +841,13 @@
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
+    // Initialize AOS
     AOS.init({
       duration: 1000,
       once: true
     });
 
+    // Mobile menu toggle
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
     menuBtn.addEventListener('click', () => {
@@ -1039,6 +858,19 @@
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
+      });
+    });
+    
+    // Simple blog navigation simulation
+    document.querySelectorAll('.read-more').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetSection = document.querySelector(this.getAttribute('href'));
+        document.querySelectorAll('section').forEach(section => {
+          section.style.display = 'none';
+        });
+        targetSection.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
   </script>
