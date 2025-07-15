@@ -1,989 +1,1046 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مدرسة عالم الطفولة الابتدائية</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* متغيرات التصميم */
-        :root {
-            --primary-color: #4CAF50;
-            --secondary-color: #FF9800;
-            --accent-color: #2196F3;
-            --light-color: #f8f9fa;
-            --dark-color: #333;
-            --text-color: #444;
-            --border-radius: 8px;
-            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
-
-        /* إعادة الضبط الأساسية */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Tajawal', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: #f5f7fa;
-            direction: rtl;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        /* شريط التنقل */
-        .navbar {
-            background-color: white;
-            box-shadow: var(--box-shadow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 60px;
-            margin-left: 15px;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-text h1 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-
-        .logo-text span {
-            color: var(--secondary-color);
-            font-size: 0.9rem;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin: 0 10px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark-color);
-            padding: 8px 15px;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
-            font-weight: 500;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* تصميم الهيرو */
-        .hero {
-            background: linear-gradient(rgba(255, 255, 255, 0.8), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-            padding: 100px 20px;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            line-height: 1.3;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: var(--text-color);
-        }
-
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .btn {
-            padding: 12px 30px;
-            border-radius: var(--border-radius);
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-            font-size: 1.1rem;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-        }
-
-        .btn-secondary {
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        /* تصميم الأقسام */
-        .section {
-            padding: 80px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 2.2rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--secondary-color);
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            color: var(--text-color);
-            max-width: 700px;
-            margin: 20px auto 0;
-            font-size: 1.1rem;
-        }
-
-        /* بطاقات الخدمات */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background-color: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            text-align: center;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin: 30px 0 20px;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--dark-color);
-            padding: 0 20px;
-        }
-
-        .service-card p {
-            color: var(--text-color);
-            padding: 0 20px 30px;
-            line-height: 1.8;
-        }
-
-        /* فريق العمل */
-        .team {
-            background-color: #f0f8ff;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .team-member {
-            background-color: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-        }
-
-        .team-member:hover {
-            transform: translateY(-5px);
-        }
-
-        .member-img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .member-info {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .member-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-            color: var(--dark-color);
-        }
-
-        .member-position {
-            color: var(--primary-color);
-            font-weight: 500;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        /* الأخبار */
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .news-card {
-            background-color: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-        }
-
-        .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .news-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .news-content {
-            padding: 20px;
-        }
-
-        .news-date {
-            color: var(--primary-color);
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .news-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--dark-color);
-        }
-
-        .news-content p {
-            margin-bottom: 20px;
-            color: var(--text-color);
-        }
-
-        /* التواصل */
-        .contact {
-            background-color: #f0f8ff;
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .contact-info {
-            background-color: white;
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-        }
-
-        .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-
-        .contact-details {
-            margin-bottom: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-
-        .contact-icon {
-            font-size: 1.5rem;
-            color: var(--accent-color);
-            margin-left: 15px;
-            min-width: 30px;
-            text-align: center;
-        }
-
-        .contact-text {
-            line-height: 1.6;
-        }
-
-        .contact-text h4 {
-            margin-bottom: 5px;
-            color: var(--dark-color);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background-color: var(--accent-color);
-            border-radius: 50%;
-            color: white;
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-5px);
-        }
-
-        .contact-form {
-            background-color: white;
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--dark-color);
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-            font-family: inherit;
-        }
-
-        .form-group textarea {
-            height: 150px;
-        }
-
-        /* الفوتر */
-        .footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 60px 0 30px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--secondary-color);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: white;
-            padding-right: 5px;
-        }
-
-        .quick-links li::before {
-            content: "→";
-            margin-left: 8px;
-            color: var(--secondary-color);
-        }
-
-        .footer-contact li {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-
-        .footer-contact i {
-            margin-left: 10px;
-            color: var(--secondary-color);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            margin-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-
-        /* تصميم متجاوب */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.3rem;
-            }
-            
-            .section {
-                padding: 60px 20px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 90px;
-                right: -100%;
-                flex-direction: column;
-                background-color: white;
-                width: 80%;
-                height: calc(100vh - 90px);
-                padding: 20px;
-                transition: var(--transition);
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-            }
-            
-            .nav-links.active {
-                right: 0;
-            }
-            
-            .nav-links li {
-                margin: 10px 0;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .logo-text h1 {
-                font-size: 1.5rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero {
-                padding: 60px 20px;
-            }
-            
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .btn {
-                padding: 10px 20px;
-                font-size: 1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="مدرسة عالم الطفولة الابتدائية تقدم تعليمًا متميزًا ومتكاملاً للأطفال مع فريق تربوي متخصص." />
+  <title>مدرسة عالم الطفولة الابتدائية</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #4CAF50;
+      --secondary-color: #FF9800;
+      --accent-color: #2196F3;
+      --light-color: #f8f9fa;
+      --dark-color: #333;
+      --text-color: #444;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background-color: #f5f7fa;
+      color: var(--text-color);
+      line-height: 1.6;
+      direction: rtl;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .navbar {
+      background: white;
+      box-shadow: var(--box-shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 60px;
+      margin-left: 15px;
+    }
+
+    .logo-text h1 {
+      font-size: 1.8rem;
+      color: var(--primary-color);
+    }
+
+    .logo-text span {
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin: 0 10px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark-color);
+      padding: 8px 15px;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+      font-weight: 500;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1950&q=80') center/cover;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .btn {
+      padding: 12px 30px;
+      border-radius: var(--border-radius);
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn-secondary {
+      background-color: var(--secondary-color);
+      color: white;
+      border: none;
+    }
+
+    .btn-accent {
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: var(--primary-color);
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    .section-title h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--secondary-color);
+      border-radius: 2px;
+    }
+
+    .section-title p {
+      max-width: 600px;
+      margin: 20px auto 0;
+      color: var(--text-color);
+      font-size: 1.1rem;
+    }
+
+    /* Services Section */
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-img {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .service-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .service-card:hover .service-img img {
+      transform: scale(1.1);
+    }
+
+    .service-content {
+      padding: 25px;
+    }
+
+    .service-content h3 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
+    .service-content p {
+      margin-bottom: 20px;
+      color: var(--text-color);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--secondary-color);
+      margin-bottom: 15px;
+    }
+
+    /* Team Section */
+    .team-section {
+      background-color: var(--light-color);
+    }
+
+    .team-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .team-card {
+      background: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .team-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .team-img {
+      height: 280px;
+      overflow: hidden;
+    }
+
+    .team-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .team-info {
+      padding: 20px;
+    }
+
+    .team-info h3 {
+      color: var(--primary-color);
+      margin-bottom: 5px;
+    }
+
+    .team-info p.position {
+      color: var(--secondary-color);
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .social-links a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-color);
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* News Section */
+    .news-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .news-card {
+      background: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+
+    .news-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .news-img {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .news-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .news-card:hover .news-img img {
+      transform: scale(1.1);
+    }
+
+    .news-content {
+      padding: 25px;
+    }
+
+    .news-date {
+      display: block;
+      color: var(--secondary-color);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .news-content h3 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .news-content p {
+      margin-bottom: 20px;
+      color: var(--text-color);
+    }
+
+    .read-more {
+      color: var(--accent-color);
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .read-more:hover {
+      text-decoration: underline;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: linear-gradient(rgba(76, 175, 80, 0.9), rgba(76, 175, 80, 0.9)), 
+                  url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1080&q=80') center/cover;
+      color: white;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .contact-info {
+      padding: 20px;
+    }
+
+    .contact-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .contact-info h3::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--secondary-color);
+    }
+
+    .contact-details {
+      margin: 30px 0;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 25px;
+    }
+
+    .contact-icon {
+      font-size: 1.5rem;
+      color: var(--secondary-color);
+      margin-left: 15px;
+      min-width: 30px;
+      text-align: center;
+    }
+
+    .contact-text h4 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .contact-form {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: var(--border-radius);
+      padding: 30px;
+      box-shadow: var(--box-shadow);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--dark-color);
+      font-weight: 500;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-color);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--dark-color);
+      color: white;
+      padding: 60px 0 0;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-col h4 {
+      font-size: 1.3rem;
+      color: var(--secondary-color);
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-col h4::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--primary-color);
+    }
+
+    .footer-col p {
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary-color);
+      transform: translateX(5px);
+    }
+
+    .footer-links a i {
+      color: var(--primary-color);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .footer-social a:hover {
+      background: var(--primary-color);
+      transform: translateY(-5px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 50px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 90px;
+        right: -100%;
+        flex-direction: column;
+        background: white;
+        width: 80%;
+        height: calc(100vh - 90px);
+        padding: 20px;
+        transition: var(--transition);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .nav-links li {
+        margin: 10px 0;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      section {
+        padding: 60px 0;
+      }
+      
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- شريط التنقل -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="logo">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48cGF0aCBmaWxsPSIjNEZBQjUwIiBkPSJNMTI1IDMwTDE4Ny4xMjYgNjguNzVIMTYyLjVMMTI1IDQ1LjI1TDg3LjUgNjguNzVINjIuODc0TDEyNSAzMHoiLz48cGF0aCBmaWxsPSIjRkY5ODAwIiBkPSJNNjIuODc0IDY4Ljc1TDMwIDEzNi4yNUw2Mi44NzQgMTY4Ljc1VjIyMEwxMjUgMjUwTDE4Ny4xMjYgMjIwVjE2OC43NUwyMjAgMTM2LjI1TDE4Ny4xMjYgNjguNzVIMTYyLjVWMTI1SDg3LjVWNjguNzVINjIuODc0eiIvPjxwYXRoIGZpbGw9IiMyMTk2RjMiIGQ9Ik0xODcuMTI2IDE2OC43NUwxMjUgMjA1VjEzNi4yNUwxODcuMTI2IDE2OC43NXoiLz48cGF0aCBmaWxsPSIjNEZBQjUwIiBkPSJNMTI1IDEzNi4yNUw2Mi44NzQgMTY4Ljc1TDEyNSAyMDVWMzBMMjIwIDEzNi4yNUwxMjUgMjIwVjEzNi4yNXoiLz48L3N2Zz4=" alt="شعار المدرسة">
-                <div class="logo-text">
-                    <h1>مدرسة عالم الطفولة</h1>
-                    <span>الابتدائية الخاصة</span>
-                </div>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MCIgZmlsbD0iIzRDQUY1MCIvPjxwYXRoIGQ9Ik00MCAzMEg2MFY3MEg0MFoiIGZpbGw9IiNGRkZGRkYiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjQwIiByPSI4IiBmaWxsPSIjRkZGRkZGIi8+PHBhdGggZD0iTTQ1IDU1TDU1IDU1IDYwIDcwIDQwIDcwWiIgZmlsbD0iI0ZGRkZGRiIvPjwvc3ZnPg==" alt="شعار المدرسة">
+        <div class="logo-text">
+          <h1>مدرسة عالم الطفولة</h1>
+          <span>الابتدائية الخاصة</span>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#" class="active">الرئيسية</a></li>
+        <li><a href="#services">الخدمات</a></li>
+        <li><a href="#team">فريق العمل</a></li>
+        <li><a href="#news">الأخبار</a></li>
+        <li><a href="#contact">التواصل</a></li>
+      </ul>
+      <div class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content" data-aos="zoom-in">
+        <h1>مرحباً بكم في عالم الطفولة الابتدائية</h1>
+        <p>نقدم بيئة تعليمية محفزة وملهمة حيث ينمو طفلك أكاديمياً واجتماعياً وعاطفياً.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">التسجيل الآن</a>
+          <a href="#virtual-tour" class="btn btn-outline">جولة افتراضية</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>خدماتنا التعليمية</h2>
+        <p>نقدم مجموعة متنوعة من الخدمات التعليمية والتربوية لدعم نمو طفلك الشامل</p>
+      </div>
+      
+      <div class="services-container">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1588072432904-843af37f03ed?auto=format&fit=crop&w=600&q=80" alt="التعليم التفاعلي">
+          </div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fas fa-laptop"></i>
+            </div>
+            <h3>التعليم التفاعلي</h3>
+            <p>فصول دراسية مجهزة بأحدث التقنيات التعليمية لتحفيز التفكير الإبداعي والمشاركة النشطة</p>
+            <a href="#" class="btn btn-outline">المزيد</a>
+          </div>
+        </div>
+        
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="الأنشطة الإبداعية">
+          </div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3>الأنشطة الإبداعية</h3>
+            <p>ورش عمل فنية وموسيقية ومسرحية لتنمية المواهب وتعزيز الثقة بالنفس</p>
+            <a href="#" class="btn btn-outline">المزيد</a>
+          </div>
+        </div>
+        
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1476231682828-37e571bc172f?auto=format&fit=crop&w=600&q=80" alt="الدعم النفسي">
+          </div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fas fa-hands-helping"></i>
+            </div>
+            <h3>الدعم النفسي والاجتماعي</h3>
+            <p>برامج متخصصة لرعاية النمو العاطفي والاجتماعي للأطفال بمتابعة أخصائيين</p>
+            <a href="#" class="btn btn-outline">المزيد</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="team-section">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>فريق العمل</h2>
+        <p>معلمون ومربون ذوو خبرة وكفاءة عالية لرعاية أبنائكم وتنمية قدراتهم</p>
+      </div>
+      
+      <div class="team-container">
+        <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-img">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80" alt="أ. سارة أحمد">
+          </div>
+          <div class="team-info">
+            <h3>أ. سارة أحمد</h3>
+            <p class="position">مديرة المدرسة</p>
+            <p>خبرة 15 عاماً في الإدارة التربوية والتعليم المبكر</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="team-img">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="أ. محمد خالد">
+          </div>
+          <div class="team-info">
+            <h3>أ. محمد خالد</h3>
+            <p class="position">مشرف تربوي</p>
+            <p>ماجستير في المناهج وطرق التدريس، خبرة 12 عاماً</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="team-img">
+            <img src="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?auto=format&fit=crop&w=600&q=80" alt="أ. فاطمة عمر">
+          </div>
+          <div class="team-info">
+            <h3>أ. فاطمة عمر</h3>
+            <p class="position">معلمة الصف الأول</p>
+            <p>متخصصة في التعليم التفاعلي وتنمية المهارات الأساسية</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="team-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="team-img">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="أ. ليلى سامي">
+          </div>
+          <div class="team-info">
+            <h3>أ. ليلى سامي</h3>
+            <p class="position">أخصائية نفسية</p>
+            <p>دعم نفسي واجتماعي للأطفال وتوجيه أولياء الأمور</p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- News Section -->
+  <section id="news">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>أخبار وفعاليات المدرسة</h2>
+        <p>تابع آخر أخبارنا وفعالياتنا المدرسية وأنشطتنا التربوية</p>
+      </div>
+      
+      <div class="news-container">
+        <div class="news-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="news-img">
+            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=600&q=80" alt="حفل التخرج">
+          </div>
+          <div class="news-content">
+            <span class="news-date">١٥ يونيو ٢٠٢٤</span>
+            <h3>حفل تخرج الدفعة العاشرة من طلاب الصف السادس</h3>
+            <p>احتفلت مدرستنا بتخريج الدفعة العاشرة من طلاب الصف السادس بحضور أولياء الأمور والمسؤولين التربويين.</p>
+            <a href="#" class="read-more">قراءة المزيد <i class="fas fa-arrow-left"></i></a>
+          </div>
+        </div>
+        
+        <div class="news-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="news-img">
+            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80" alt="مسابقة العلوم">
+          </div>
+          <div class="news-content">
+            <span class="news-date">٣٠ مايو ٢٠٢٤</span>
+            <h3>فوز طلابنا بالمركز الأول في مسابقة العلوم الإقليمية</h3>
+            <p>حقق فريق العلوم في مدرستنا المركز الأول على مستوى المنطقة في مسابقة الابتكارات العلمية لهذا العام.</p>
+            <a href="#" class="read-more">قراءة المزيد <i class="fas fa-arrow-left"></i></a>
+          </div>
+        </div>
+        
+        <div class="news-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="news-img">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="ورشة فنية">
+          </div>
+          <div class="news-content">
+            <span class="news-date">١٠ مايو ٢٠٢٤</span>
+            <h3>ورشة عمل فنية بعنوان "الطفل والفن التشكيلي"</h3>
+            <p>نظمت المدرسة ورشة عمل فنية للأطفال بهدف تنمية المهارات الإبداعية وتشجيع التعبير الفني.</p>
+            <a href="#" class="read-more">قراءة المزيد <i class="fas fa-arrow-left"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="#" class="btn btn-secondary">عرض جميع الأخبار</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2 style="color: white;">تواصل معنا</h2>
+        <p style="color: rgba(255,255,255,0.8);">يسعدنا تواصلكم معنا لأي استفسار أو تسجيل أبنائكم</p>
+      </div>
+      
+      <div class="contact-container">
+        <div class="contact-info" data-aos="fade-right">
+          <h3>معلومات التواصل</h3>
+          <p>يسعدنا تواصلكم معنا عبر قنوات التواصل المختلفة أو زيارة مقر المدرسة خلال ساعات العمل</p>
+          
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h4>العنوان</h4>
+                <p>شارع التعليم، حي الروضة، الرياض، المملكة العربية السعودية</p>
+              </div>
             </div>
             
-            <ul class="nav-links">
-                <li><a href="#" class="active">الرئيسية</a></li>
-                <li><a href="#">من نحن</a></li>
-                <li><a href="#">المناهج</a></li>
-                <li><a href="#">الجداول</a></li>
-                <li><a href="#">الأخبار</a></li>
-                <li><a href="#">التواصل</a></li>
-            </ul>
-            
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </nav>
-
-    <!-- الهيرو -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>مرحباً بكم في عالم الطفولة الابتدائية</h1>
-                <p>نقدم بيئة تعليمية محفزة وملهمة حيث ينمو طفلك أكاديمياً واجتماعياً وعاطفياً، نحن نؤمن بأن كل طفل فريد ويستحق أفضل بداية لحياته التعليمية.</p>
-                <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary">التسجيل الآن</a>
-                    <a href="#" class="btn btn-outline">جولة افتراضية</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- خدماتنا -->
-    <section class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>خدماتنا التعليمية</h2>
-                <p>نقدم مجموعة متكاملة من الخدمات التعليمية لتنمية مهارات طفلك وصقل مواهبه</p>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h4>الهاتف</h4>
+                <p>+966 11 123 4567</p>
+              </div>
             </div>
             
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-book-open"></i>
-                    </div>
-                    <h3>مناهج متطورة</h3>
-                    <p>مناهج تعليمية حديثة تدمج بين الأصالة والمعاصرة، مع التركيز على تنمية التفكير النقدي والإبداعي لدى الأطفال.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3>التعليم الإلكتروني</h3>
-                    <p>منصة تعليمية تفاعلية تتيح للطلاب الوصول للمواد التعليمية والتفاعل مع معلميهم في أي وقت ومن أي مكان.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <h3>الأنشطة الإبداعية</h3>
-                    <p>برامج متكاملة للفنون والموسيقى والدراما لتنمية المواهب الإبداعية وتعزيز الثقة بالنفس لدى الأطفال.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-heartbeat"></i>
-                    </div>
-                    <h3>الرعاية الصحية</h3>
-                    <p>عيادة مدرسية مجهزة وبرامج متابعة صحية منتظمة لضمان صحة وسلامة أطفالنا طوال العام الدراسي.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- فريق العمل -->
-    <section class="section team">
-        <div class="container">
-            <div class="section-title">
-                <h2>فريقنا التعليمي</h2>
-                <p>معلمون مؤهلون وذوو خبرة عالية في التعامل مع الأطفال وتقديم أفضل تجربة تعليمية</p>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <h4>البريد الإلكتروني</h4>
+                <p>info@alam-altufula.edu.sa</p>
+              </div>
             </div>
             
-            <div class="team-grid">
-                <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="المديرة" class="member-img">
-                    <div class="member-info">
-                        <h3>أ. سارة أحمد</h3>
-                        <span class="member-position">مديرة المدرسة</span>
-                        <p>ماجستير في التربية الخاصة مع 15 عاماً من الخبرة في إدارة المؤسسات التعليمية.</p>
-                    </div>
-                </div>
-                
-                <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="معلم" class="member-img">
-                    <div class="member-info">
-                        <h3>أ. محمد حسن</h3>
-                        <span class="member-position">رائد الصفوف الأولى</span>
-                        <p>متخصص في تعليم الصفوف التأسيسية مع شهادة في التعليم التفاعلي للأطفال.</p>
-                    </div>
-                </div>
-                
-                <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="معلمة" class="member-img">
-                    <div class="member-info">
-                        <h3>أ. فاطمة علي</h3>
-                        <span class="member-position">مشرفة الأنشطة</span>
-                        <p>خبيرة في تصميم البرامج الإبداعية والترفيهية لتنمية مواهب الأطفال.</p>
-                    </div>
-                </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-text">
+                <h4>ساعات العمل</h4>
+                <p>الأحد - الخميس: 7:30 صباحاً - 2:30 ظهراً</p>
+              </div>
             </div>
+          </div>
+          
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
         </div>
-    </section>
-
-    <!-- الأخبار -->
-    <section class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>أحدث الأخبار والفعاليات</h2>
-                <p>تابع آخر أخبار المدرسة والفعاليات القادمة</p>
+        
+        <div class="contact-form" data-aos="fade-left">
+          <h3 style="color: var(--primary-color); text-align: center; margin-bottom: 25px;">أرسل رسالتك إلينا</h3>
+          <form>
+            <div class="form-group">
+              <label for="name">الاسم الكامل</label>
+              <input type="text" id="name" class="form-control" placeholder="أدخل اسمك الكامل">
             </div>
             
-            <div class="news-grid">
-                <div class="news-card">
-                    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="فعاليات" class="news-img">
-                    <div class="news-content">
-                        <span class="news-date"><i class="far fa-calendar"></i> 15 أكتوبر 2023</span>
-                        <h3>الأسبوع الثقافي السنوي</h3>
-                        <p>انطلاق فعاليات الأسبوع الثقافي السنوي بمشاركة طلابية واسعة وعروض متميزة تعكس إبداعات أبنائنا الطلاب.</p>
-                        <a href="#" class="btn btn-outline">قراءة المزيد</a>
-                    </div>
-                </div>
-                
-                <div class="news-card">
-                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="ورش عمل" class="news-img">
-                    <div class="news-content">
-                        <span class="news-date"><i class="far fa-calendar"></i> 5 أكتوبر 2023</span>
-                        <h3>ورشة عمل لأولياء الأمور</h3>
-                        <p>تنظم المدرسة ورشة عمل بعنوان "كيف تدعم تعلم طفلك في المنزل" لأولياء الأمور يوم السبت القادم.</p>
-                        <a href="#" class="btn btn-outline">قراءة المزيد</a>
-                    </div>
-                </div>
-                
-                <div class="news-card">
-                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="رحلات" class="news-img">
-                    <div class="news-content">
-                        <span class="news-date"><i class="far fa-calendar"></i> 28 سبتمبر 2023</span>
-                        <h3>رحلة علمية لحديقة الحيوانات</h3>
-                        <p>تنظم المدرسة رحلة علمية ترفيهية لحديقة الحيوانات لطلاب الصفوف الأولية يوم الأربعاء القادم.</p>
-                        <a href="#" class="btn btn-outline">قراءة المزيد</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- التواصل -->
-    <section class="section contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>تواصل معنا</h2>
-                <p>نحن هنا للإجابة على استفساراتكم وتلقي آرائكم ومقترحاتكم</p>
+            <div class="form-group">
+              <label for="email">البريد الإلكتروني</label>
+              <input type="email" id="email" class="form-control" placeholder="أدخل بريدك الإلكتروني">
             </div>
             
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>معلومات التواصل</h3>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>العنوان</h4>
-                                <p>شارع التعليم، رقم 45، الحي التربوي، مدينة الرباط</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>الهاتف</h4>
-                                <p>+212 644 680 614</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>البريد الإلكتروني</h4>
-                                <p>info@alam-altufula.ma</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>ساعات العمل</h4>
-                                <p>الأحد - الخميس: 8 صباحاً - 5 مساءً</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h3>تابعونا على</h3>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/share/16oZTzHYx1/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <h3>أرسل رسالة</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">الاسم الكامل</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">البريد الإلكتروني</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">رقم الهاتف</label>
-                            <input type="tel" id="phone">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">الموضوع</label>
-                            <select id="subject">
-                                <option value="">اختر الموضوع</option>
-                                <option value="admission">الاستفسار عن التسجيل</option>
-                                <option value="academic">استفسار أكاديمي</option>
-                                <option value="activity">الأنشطة والفعاليات</option>
-                                <option value="other">موضوع آخر</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">الرسالة</label>
-                            <textarea id="message" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- الفوتر -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>عن المدرسة</h3>
-                    <p>مدرسة عالم الطفولة الابتدائية مؤسسة تعليمية رائدة تهدف إلى تقديم تعليم متميز يحقق التنمية الشاملة للطفل، ويسهم في بناء شخصيته وصقل مواهبه.</p>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/share/16oZTzHYx1/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>روابط سريعة</h3>
-                    <ul class="footer-links quick-links">
-                        <li><a href="#">الرئيسية</a></li>
-                        <li><a href="#">من نحن</a></li>
-                        <li><a href="#">المناهج التعليمية</a></li>
-                        <li><a href="#">الجداول الدراسية</a></li>
-                        <li><a href="#">الأخبار والفعاليات</a></li>
-                        <li><a href="#">التواصل</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>خدماتنا</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">التعليم الأساسي</a></li>
-                        <li><a href="#">التعليم الإلكتروني</a></li>
-                        <li><a href="#">الأنشطة الإبداعية</a></li>
-                        <li><a href="#">الرعاية الصحية</a></li>
-                        <li><a href="#">الدعم النفسي</a></li>
-                        <li><a href="#">النقل المدرسي</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>معلومات التواصل</h3>
-                    <ul class="footer-links footer-contact">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>شارع التعليم، رقم 45، الحي التربوي، مدينة الرباط</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>+212 644 680 614</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>info@alam-altufula.ma</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-clock"></i>
-                            <span>الأحد - الخميس: 8 صباحاً - 5 مساءً</span>
-                        </li>
-                    </ul>
-                </div>
+            <div class="form-group">
+              <label for="phone">رقم الهاتف</label>
+              <input type="tel" id="phone" class="form-control" placeholder="أدخل رقم هاتفك">
             </div>
             
-            <div class="copyright">
-                <p>جميع الحقوق محفوظة &copy; 2023 مدرسة عالم الطفولة الابتدائية</p>
+            <div class="form-group">
+              <label for="message">الرسالة</label>
+              <textarea id="message" class="form-control" placeholder="أدخل رسالتك هنا"></textarea>
             </div>
+            
+            <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
+          </form>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // تنفيذ القائمة المتنقلة للجوال
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h4>عن المدرسة</h4>
+          <p>مدرسة عالم الطفولة الابتدائية مؤسسة تعليمية رائدة تهدف إلى تقديم تعليم متميز ومتوازن للأطفال، مع التركيز على تنمية المهارات الأكاديمية والشخصية في بيئة آمنة ومحفزة.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h4>روابط سريعة</h4>
+          <ul class="footer-links">
+            <li><a href="#"><i class="fas fa-arrow-left"></i> الرئيسية</a></li>
+            <li><a href="#about"><i class="fas fa-arrow-left"></i> من نحن</a></li>
+            <li><a href="#services"><i class="fas fa-arrow-left"></i> خدماتنا</a></li>
+            <li><a href="#team"><i class="fas fa-arrow-left"></i> فريق العمل</a></li>
+            <li><a href="#news"><i class="fas fa-arrow-left"></i> الأخبار</a></li>
+            <li><a href="#contact"><i class="fas fa-arrow-left"></i> التواصل</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>خدماتنا</h4>
+          <ul class="footer-links">
+            <li><a href="#"><i class="fas fa-arrow-left"></i> التعليم التفاعلي</a></li>
+            <li><a href="#"><i class="fas fa-arrow-left"></i> الأنشطة الإبداعية</a></li>
+            <li><a href="#"><i class="fas fa-arrow-left"></i> الدعم النفسي</a></li>
+            <li><a href="#"><i class="fas fa-arrow-left"></i> الرحلات التعليمية</a></li>
+            <li><a href="#"><i class="fas fa-arrow-left"></i> البرامج الصيفية</a></li>
+            <li><a href="#"><i class="fas fa-arrow-left"></i> التغذية الصحية</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>النشرة الإخبارية</h4>
+          <p>اشترك في نشرتنا الإخبارية لتصلك آخر أخبار المدرسة وفعالياتها</p>
+          <form style="margin-top: 20px;">
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="بريدك الإلكتروني">
+            </div>
+            <button type="submit" class="btn btn-primary">اشترك الآن</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <div class="container">
+        <p>جميع الحقوق محفوظة &copy; 2024 مدرسة عالم الطفولة الابتدائية | تصميم وتطوير فريق المدرسة</p>
+      </div>
+    </div>
+  </footer>
 
-        // تفعيل الروابط النشطة
-        const navLinks = document.querySelectorAll('.nav-links a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                navLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-                
-                // إغلاق القائمة المتنقلة بعد النقر على رابط
-                if(window.innerWidth <= 768) {
-                    document.querySelector('.nav-links').classList.remove('active');
-                }
-            });
-        });
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
 
-        // تأثير التمرير السلس
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>
