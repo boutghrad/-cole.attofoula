@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="مدرسة عالم الطفولة الابتدائية تقدم تعليمًا متميزًا ومتكاملاً للأطفال مع فريق تربوي متخصص." />
-  <title>مدونة مدرسة عالم الطفولة الابتدائية</title>
+  <meta name="description" content="مدونة تربوية لمدرسة عالم الطفولة الابتدائية، تقدم مقالات تعليمية متخصصة في تنمية الطفل والتربية الحديثة" />
+  <title>مدونة تربوية | مدرسة عالم الطفولة الابتدائية</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -31,7 +31,7 @@
       font-family: 'Tajawal', sans-serif;
       background-color: #f5f7fa;
       color: var(--text-color);
-      line-height: 1.6;
+      line-height: 1.8;
       direction: rtl;
     }
 
@@ -39,6 +39,21 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 15px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: var(--primary-color);
+      color: white;
+      padding: 8px;
+      z-index: 1001;
+      transition: top 0.3s;
+    }
+
+    .skip-link:focus {
+      top: 0;
     }
 
     .navbar {
@@ -59,11 +74,14 @@
     .logo {
       display: flex;
       align-items: center;
+      text-decoration: none;
+      color: inherit;
     }
 
     .logo img {
       height: 60px;
       margin-left: 15px;
+      aspect-ratio: 1/1;
     }
 
     .logo-text h1 {
@@ -104,6 +122,10 @@
       display: none;
       font-size: 1.5rem;
       cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--dark-color);
+      padding: 5px;
     }
 
     .hero {
@@ -148,12 +170,12 @@
       text-decoration: none;
       transition: var(--transition);
       display: inline-block;
+      border: none;
     }
 
     .btn-primary {
       background-color: var(--primary-color);
       color: white;
-      border: none;
     }
 
     .btn-outline {
@@ -170,13 +192,11 @@
     .btn-secondary {
       background-color: var(--secondary-color);
       color: white;
-      border: none;
     }
 
     .btn-accent {
       background-color: var(--accent-color);
       color: white;
-      border: none;
     }
 
     section {
@@ -232,6 +252,9 @@
       overflow: hidden;
       box-shadow: var(--box-shadow);
       transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .blog-card:hover {
@@ -242,6 +265,7 @@
     .blog-img {
       height: 220px;
       overflow: hidden;
+      position: relative;
     }
 
     .blog-img img {
@@ -257,6 +281,9 @@
 
     .blog-content {
       padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .blog-meta {
@@ -265,6 +292,8 @@
       margin-bottom: 15px;
       font-size: 0.9rem;
       color: #777;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .blog-category {
@@ -292,6 +321,7 @@
       margin-bottom: 20px;
       color: var(--text-color);
       line-height: 1.8;
+      flex-grow: 1;
     }
 
     .read-more {
@@ -302,6 +332,7 @@
       align-items: center;
       gap: 5px;
       transition: var(--transition);
+      margin-top: auto;
     }
 
     .read-more:hover {
@@ -342,6 +373,7 @@
       justify-content: center;
       gap: 20px;
       font-size: 0.95rem;
+      flex-wrap: wrap;
     }
 
     .post-img {
@@ -353,6 +385,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .post-content {
@@ -425,6 +458,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .author-info h4 {
@@ -452,6 +486,7 @@
       justify-content: center;
       color: var(--primary-color);
       transition: var(--transition);
+      text-decoration: none;
     }
 
     .social-links a:hover {
@@ -468,6 +503,109 @@
       display: flex;
       align-items: center;
       gap: 5px;
+    }
+
+    /* Newsletter Section */
+    .newsletter {
+      background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .newsletter h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .newsletter p {
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 600px;
+      margin: 0 auto;
+      gap: 10px;
+    }
+
+    .newsletter-form input {
+      flex-grow: 1;
+      padding: 15px;
+      border: none;
+      border-radius: var(--border-radius);
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1rem;
+    }
+
+    .newsletter-form button {
+      background: var(--secondary-color);
+      color: white;
+      border: none;
+      border-radius: var(--border-radius);
+      padding: 0 30px;
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .newsletter-form button:hover {
+      background: #e68a00;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark-color);
+      color: white;
+      padding: 60px 0 20px;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column h3 {
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+    }
+
+    .footer-column p {
+      margin-bottom: 15px;
+      opacity: 0.8;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: white;
+      padding-right: 5px;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
     }
 
     /* Responsive Styles */
@@ -528,6 +666,10 @@
         flex-direction: column;
         text-align: center;
       }
+      
+      .newsletter-form {
+        flex-direction: column;
+      }
     }
 
     @media (max-width: 576px) {
@@ -539,35 +681,41 @@
         flex-direction: column;
         gap: 10px;
       }
+      
+      .hero h1 {
+        font-size: 2.2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <nav class="navbar">
+  <a href="#main-content" class="skip-link">تخطي إلى المحتوى الرئيسي</a>
+  
+  <nav class="navbar" aria-label="القائمة الرئيسية">
     <div class="container nav-container">
-      <div class="logo">
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MCIgZmlsbD0iIzRDQUY1MCIvPjxwYXRoIGQ9Ik00MCAzMEg2MFY3MEg0MFoiIGZpbGw9IiNGRkZGRkYiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjQwIiByPSI4IiBmaWxsPSIjRkZGRkZGIi8+PHBhdGggZD0iTTQ1IDU1TDU1IDU1IDYwIDcwIDQwIDcwWiIgZmlsbD0iI0ZGRkZGRiIvPjwvc3ZnPg==" alt="شعار المدرسة">
+      <a href="index.html" class="logo">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MCIgZmlsbD0iIzRDQUY1MCIvPjxwYXRoIGQ9Ik00MCAzMEg2MFY3MEg0MFoiIGZpbGw9IiNGRkZGRkYiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjQwIiByPSI4IiBmaWxsPSIjRkZGRkZGIi8+PHBhdGggZD0iTTQ1IDU1TDU1IDU1IDYwIDcwIDQwIDcwWiIgZmlsbD0iI0ZGRkZGRiIvPjwvc3ZnPg==" alt="شعار مدرسة عالم الطفولة الابتدائية">
         <div class="logo-text">
           <h1>مدرسة عالم الطفولة</h1>
           <span>الابتدائية الخاصة</span>
         </div>
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="#services">الخدمات</a></li>
-        <li><a href="#team">فريق العمل</a></li>
-        <li><a href="#news">الأخبار</a></li>
-        <li><a href="#" class="active">المدونة</a></li>
-        <li><a href="#contact">التواصل</a></li>
+      </a>
+      <ul class="nav-links" role="menubar">
+        <li role="none"><a href="index.html" role="menuitem">الرئيسية</a></li>
+        <li role="none"><a href="#services" role="menuitem">الخدمات</a></li>
+        <li role="none"><a href="#team" role="menuitem">فريق العمل</a></li>
+        <li role="none"><a href="#news" role="menuitem">الأخبار</a></li>
+        <li role="none"><a href="#" class="active" aria-current="page" role="menuitem">المدونة</a></li>
+        <li role="none"><a href="#contact" role="menuitem">التواصل</a></li>
       </ul>
-      <div class="mobile-menu-btn">
+      <button class="mobile-menu-btn" aria-label="فتح القائمة" aria-expanded="false">
         <i class="fas fa-bars"></i>
-      </div>
+      </button>
     </div>
   </nav>
 
   <!-- Blog Hero Section -->
-  <section class="hero">
+  <section class="hero" id="main-content">
     <div class="container">
       <div class="hero-content" data-aos="zoom-in">
         <h1>مدونة تربوية وتعليمية</h1>
@@ -588,96 +736,96 @@
         <!-- Blog 1: التعليم التفاعلي -->
         <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
           <div class="blog-img">
-            <img src="https://images.unsplash.com/photo-1588072432904-843af37f03ed?auto=format&fit=crop&w=600&q=80" alt="التعليم التفاعلي">
+            <img src="https://images.unsplash.com/photo-1588072432904-843af37f03ed?auto=format&fit=crop&w=600&q=80" alt="أطفال يشاركون في نشاط تعليمي تفاعلي" loading="lazy">
           </div>
           <div class="blog-content">
             <div class="blog-meta">
               <span class="blog-category">تعليمي</span>
-              <span class="blog-date"><i class="far fa-calendar"></i> ١٠ يونيو ٢٠٢٤</span>
+              <span class="blog-date"><i class="far fa-calendar" aria-hidden="true"></i> ١٠ يونيو ٢٠٢٤</span>
             </div>
             <h3>التعليم التفاعلي: مستقبل التعلم في القرن الحادي والعشرين</h3>
             <p>كيف يمكن للتعليم التفاعلي أن يحول تجربة التعلم لطفلك؟ استكشف فوائد وأساليب التعليم التفاعلي في تطوير مهارات التفكير النقدي والإبداع.</p>
-            <a href="#blog1" class="read-more">قراءة المقال <i class="fas fa-arrow-left"></i></a>
+            <a href="#blog1" class="read-more">قراءة المقال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
           </div>
         </div>
         
         <!-- Blog 2: الأنشطة الإبداعية -->
         <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
           <div class="blog-img">
-            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="الأنشطة الإبداعية">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="طفل يرسم لوحة فنية" loading="lazy">
           </div>
           <div class="blog-content">
             <div class="blog-meta">
               <span class="blog-category">إبداع</span>
-              <span class="blog-date"><i class="far fa-calendar"></i> ٢٥ مايو ٢٠٢٤</span>
+              <span class="blog-date"><i class="far fa-calendar" aria-hidden="true"></i> ٢٥ مايو ٢٠٢٤</span>
             </div>
             <h3>تنمية الإبداع عند الأطفال: الأنشطة والفعاليات الفنية</h3>
             <p>اكتشف مجموعة من الأنشطة الإبداعية التي تحفز خيال طفلك وتنمي مواهبه الفنية. دليل شامل للأنشطة المناسبة لكل فئة عمرية.</p>
-            <a href="#blog2" class="read-more">قراءة المقال <i class="fas fa-arrow-left"></i></a>
+            <a href="#blog2" class="read-more">قراءة المقال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
           </div>
         </div>
         
         <!-- Blog 3: الدعم النفسي -->
         <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
           <div class="blog-img">
-            <img src="https://images.unsplash.com/photo-1476231682828-37e571bc172f?auto=format&fit=crop&w=600&q=80" alt="الدعم النفسي">
+            <img src="https://images.unsplash.com/photo-1476231682828-37e571bc172f?auto=format&fit=crop&w=600&q=80" alt="طفل يلعب مع معلمته" loading="lazy">
           </div>
           <div class="blog-content">
             <div class="blog-meta">
               <span class="blog-category">نفسي</span>
-              <span class="blog-date"><i class="far fa-calendar"></i> ١٢ مايو ٢٠٢٤</span>
+              <span class="blog-date"><i class="far fa-calendar" aria-hidden="true"></i> ١٢ مايو ٢٠٢٤</span>
             </div>
             <h3>الدعم النفسي للأطفال: كيفية بناء ثقة الطفل بنفسه</h3>
             <p>أهمية الدعم النفسي في مرحلة الطفولة وكيف يمكن للوالدين والمعلمين بناء ثقة الطفل بنفسه وتطوير مهاراته الاجتماعية.</p>
-            <a href="#blog3" class="read-more">قراءة المقال <i class="fas fa-arrow-left"></i></a>
+            <a href="#blog3" class="read-more">قراءة المقال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
           </div>
         </div>
         
         <!-- Blog 4: الرحلات التعليمية -->
         <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
           <div class="blog-img">
-            <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=600&q=80" alt="الرحلات التعليمية">
+            <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=600&q=80" alt="أطفال في رحلة تعليمية" loading="lazy">
           </div>
           <div class="blog-content">
             <div class="blog-meta">
               <span class="blog-category">رحلات</span>
-              <span class="blog-date"><i class="far fa-calendar"></i> ٢٨ أبريل ٢٠٢٤</span>
+              <span class="blog-date"><i class="far fa-calendar" aria-hidden="true"></i> ٢٨ أبريل ٢٠٢٤</span>
             </div>
             <h3>فوائد الرحلات التعليمية في تنمية معارف الأطفال</h3>
             <p>كيف تساهم الرحلات التعليمية في توسيع آفاق الأطفال؟ دليل لأفضل الوجهات التعليمية وفوائدها التربوية.</p>
-            <a href="#blog4" class="read-more">قراءة المقال <i class="fas fa-arrow-left"></i></a>
+            <a href="#blog4" class="read-more">قراءة المقال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
           </div>
         </div>
         
         <!-- Blog 5: البرامج الصيفية -->
         <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
           <div class="blog-img">
-            <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=600&q=80" alt="البرامج الصيفية">
+            <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=600&q=80" alt="أطفال في نشاط صيفي" loading="lazy">
           </div>
           <div class="blog-content">
             <div class="blog-meta">
               <span class="blog-category">صيفي</span>
-              <span class="blog-date"><i class="far fa-calendar"></i> ١٥ أبريل ٢٠٢٤</span>
+              <span class="blog-date"><i class="far fa-calendar" aria-hidden="true"></i> ١٥ أبريل ٢٠٢٤</span>
             </div>
             <h3>البرامج الصيفية: كيف تستثمر إجازة طفلك بشكل مفيد</h3>
             <p>أفضل البرامج الصيفية التعليمية والترفيهية التي تنمي مهارات طفلك وتستثمر وقت الإجازة بشكل مثمر.</p>
-            <a href="#blog5" class="read-more">قراءة المقال <i class="fas fa-arrow-left"></i></a>
+            <a href="#blog5" class="read-more">قراءة المقال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
           </div>
         </div>
         
         <!-- Blog 6: التغذية الصحية -->
         <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
           <div class="blog-img">
-            <img src="https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?auto=format&fit=crop&w=600&q=80" alt="التغذية الصحية">
+            <img src="https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?auto=format&fit=crop&w=600&q=80" alt="فواكه وخضروات صحية" loading="lazy">
           </div>
           <div class="blog-content">
             <div class="blog-meta">
               <span class="blog-category">صحة</span>
-              <span class="blog-date"><i class="far fa-calendar"></i> ٢ أبريل ٢٠٢٤</span>
+              <span class="blog-date"><i class="far fa-calendar" aria-hidden="true"></i> ٢ أبريل ٢٠٢٤</span>
             </div>
             <h3>التغذية الصحية للأطفال: دليل الأطعمة المعززة للتعلم</h3>
             <p>كيف تؤثر التغذية على قدرات الطفل التعليمية؟ تعرف على الأطعمة المعززة للتركيز والذاكرة ونمو الدماغ.</p>
-            <a href="#blog6" class="read-more">قراءة المقال <i class="fas fa-arrow-left"></i></a>
+            <a href="#blog6" class="read-more">قراءة المقال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
@@ -685,156 +833,74 @@
       <!-- Pagination -->
       <div style="text-align: center; margin-top: 50px;">
         <div class="pagination">
-          <a href="#" class="btn btn-outline"><i class="fas fa-arrow-right"></i> السابق</a>
-          <a href="#" class="btn btn-primary">1</a>
+          <a href="#" class="btn btn-outline"><i class="fas fa-arrow-right" aria-hidden="true"></i> السابق</a>
+          <a href="#" class="btn btn-primary" aria-current="page">1</a>
           <a href="#" class="btn btn-outline">2</a>
           <a href="#" class="btn btn-outline">3</a>
-          <a href="#" class="btn btn-outline">التالي <i class="fas fa-arrow-left"></i></a>
+          <a href="#" class="btn btn-outline">التالي <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Blog Post Example: التعليم التفاعلي -->
-  <section id="blog1" class="blog-post-section" style="display: none;">
+  <!-- Newsletter Section -->
+  <section class="newsletter">
     <div class="container">
-      <a href="#blog" class="back-to-blog"><i class="fas fa-arrow-right"></i> العودة إلى المدونة</a>
-      
-      <div class="blog-post">
-        <div class="post-header">
-          <span class="blog-category">تعليمي</span>
-          <h1>التعليم التفاعلي: مستقبل التعلم في القرن الحادي والعشرين</h1>
-          <div class="post-meta">
-            <span><i class="far fa-user"></i> أ. سارة أحمد</span>
-            <span><i class="far fa-calendar"></i> ١٠ يونيو ٢٠٢٤</span>
-            <span><i class="far fa-clock"></i> قراءة ٦ دقائق</span>
-          </div>
-        </div>
-        
-        <div class="post-img">
-          <img src="https://images.unsplash.com/photo-1588072432904-843af37f03ed?auto=format&fit=crop&w=1200&q=80" alt="التعليم التفاعلي">
-        </div>
-        
-        <div class="post-content">
-          <p>في عصر التكنولوجيا والتطور السريع، أصبح التعليم التفاعلي حجر الزاوية في العملية التعليمية الحديثة. لم يعد التعلم التقليدي القائم على التلقين والحفظ كافياً لإعداد الأطفال لمتطلبات المستقبل. التعليم التفاعلي يشكل بيئة تعليمية ديناميكية تحفز التفكير النقدي والإبداع لدى الأطفال.</p>
-          
-          <h2>ما هو التعليم التفاعلي؟</h2>
-          <p>التعليم التفاعلي هو منهج تعليمي يعتمد على مشاركة الطالب الفعالة في العملية التعليمية، حيث يصبح المتعلم محوراً أساسياً بدلاً من أن يكون متلقياً سلبياً. هذا النهج يشمل:</p>
-          <ul>
-            <li>استخدام التكنولوجيا التعليمية الحديثة</li>
-            <li>التعلم القائم على المشاريع والتجارب</li>
-            <li>الأنشطة الجماعية والعمل التعاوني</li>
-            <li>التعلم من خلال اللعب والمحاكاة</li>
-            <li>التغذية الراجعة الفورية والتقييم التكويني</li>
-          </ul>
-          
-          <div class="quote">
-            <p>"التعليم التفاعلي ليس مجرد أداة تعليمية، بل هو فلسفة تربوية تضع الطالب في مركز العملية التعليمية وتنمي قدراته على حل المشكلات والتفكير الإبداعي"</p>
-          </div>
-          
-          <h2>فوائد التعليم التفاعلي</h2>
-          <p>يقدم التعليم التفاعلي مجموعة من الفوائد التربوية والنفسية للأطفال:</p>
-          
-          <h3>١. تنمية التفكير النقدي والإبداعي</h3>
-          <p>عندما يشارك الأطفال في أنشطة تفاعلية، يتعلمون تحليل المعلومات وربط المفاهيم بدلاً من حفظها. هذا النهج يحفز التفكير الإبداعي ويطور قدرات حل المشكلات.</p>
-          
-          <h3>٢. زيادة التحفيز والمشاركة</h3>
-          <p>التعليم التفاعلي يجعل عملية التعلم ممتعة وجذابة. الأطفال الذين يشاركون بنشاط في تعلمهم يكونون أكثر تحفيزاً ومشاركة في الفصل الدراسي.</p>
-          
-          <h3>٣. تطوير المهارات الاجتماعية</h3>
-          <p>من خلال العمل الجماعي والأنشطة التعاونية، يتعلم الأطفال مهارات التواصل الفعال، واحترام آراء الآخرين، والعمل ضمن فريق.</p>
-          
-          <h3>٤. تعزيز الاستقلالية والثقة بالنفس</h3>
-          <p>عندما يكتشف الأطفال المعرفة بأنفسهم، يطورون شعوراً بالإنجاز والثقة بقدراتهم. هذا يعزز استقلاليتهم ويشجعهم على تحمل مسؤولية تعلمهم.</p>
-          
-          <h2>استراتيجيات التعليم التفاعلي في مدرستنا</h2>
-          <p>في مدرسة عالم الطفولة، نطبق مجموعة من استراتيجيات التعليم التفاعلي:</p>
-          
-          <h3>فصول دراسية ذكية</h3>
-          <p>جميع فصولنا مجهزة بشاشات تفاعلية وأجهزة لوحية تسمح للأطفال بالتفاعل مع المحتوى التعليمي بشكل مباشر.</p>
-          
-          <h3>التعلم القائم على المشاريع</h3>
-          <p>ينفذ الطلاب مشاريع عملية تتحدى تفكيرهم وتشجعهم على البحث والتجريب والابتكار.</p>
-          
-          <h3>المختبرات العلمية التفاعلية</h3>
-          <p>مختبراتنا العلمية مجهزة بأحدث الأجهزة التي تسمح للأطفال بإجراء التجارب واكتشاف المفاهيم العلمية بأنفسهم.</p>
-          
-          <h3>الرحلات التعليمية الافتراضية</h3>
-          <p>باستخدام تقنيات الواقع الافتراضي، نأخذ طلابنا في رحلات افتراضية إلى متاحف ومعالم تاريخية حول العالم.</p>
-          
-          <div class="author-box">
-            <div class="author-img">
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80" alt="أ. سارة أحمد">
-            </div>
-            <div class="author-info">
-              <h4>أ. سارة أحمد</h4>
-              <p>مديرة مدرسة عالم الطفولة الابتدائية، حاصلة على ماجستير في التربية الحديثة وتكنولوجيا التعليم.</p>
-              <div class="social-links">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <h2>انضم إلى قائمة المراسلة</h2>
+      <p>اشترك للحصول على أحدث المقالات والموارد التعليمية مباشرة إلى بريدك الإلكتروني</p>
+      <form class="newsletter-form" action="#" method="post">
+        <input type="email" name="email" placeholder="بريدك الإلكتروني" required aria-label="البريد الإلكتروني">
+        <button type="submit" class="btn btn-secondary">اشتراك</button>
+      </form>
     </div>
   </section>
 
-  <footer class="footer">
+  <!-- Footer -->
+  <footer>
     <div class="container">
       <div class="footer-container">
-        <div class="footer-col">
-          <h4>عن المدرسة</h4>
-          <p>مدرسة عالم الطفولة الابتدائية مؤسسة تعليمية رائدة تهدف إلى تقديم تعليم متميز ومتوازن للأطفال، مع التركيز على تنمية المهارات الأكاديمية والشخصية في بيئة آمنة ومحفزة.</p>
-          <div class="footer-social">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+        <div class="footer-column">
+          <h3>عن المدرسة</h3>
+          <p>مدرسة عالم الطفولة الابتدائية تقدم تعليمًا متميزًا ومتكاملاً للأطفال مع فريق تربوي متخصص وبيئة تعليمية محفزة.</p>
+          <div class="social-links">
+            <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
           </div>
         </div>
         
-        <div class="footer-col">
-          <h4>روابط سريعة</h4>
+        <div class="footer-column">
+          <h3>روابط سريعة</h3>
           <ul class="footer-links">
-            <li><a href="index.html"><i class="fas fa-arrow-left"></i> الرئيسية</a></li>
-            <li><a href="#services"><i class="fas fa-arrow-left"></i> خدماتنا</a></li>
-            <li><a href="#team"><i class="fas fa-arrow-left"></i> فريق العمل</a></li>
-            <li><a href="#news"><i class="fas fa-arrow-left"></i> الأخبار</a></li>
-            <li><a href="#blog"><i class="fas fa-arrow-left"></i> المدونة</a></li>
-            <li><a href="#contact"><i class="fas fa-arrow-left"></i> التواصل</a></li>
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="#about">من نحن</a></li>
+            <li><a href="#programs">البرامج التعليمية</a></li>
+            <li><a href="#team">فريق العمل</a></li>
+            <li><a href="#blog">المدونة</a></li>
           </ul>
         </div>
         
-        <div class="footer-col">
-          <h4>مواضيع المدونة</h4>
+        <div class="footer-column">
+          <h3>المقالات الأكثر قراءة</h3>
           <ul class="footer-links">
-            <li><a href="#blog1"><i class="fas fa-arrow-left"></i> التعليم التفاعلي</a></li>
-            <li><a href="#blog2"><i class="fas fa-arrow-left"></i> الأنشطة الإبداعية</a></li>
-            <li><a href="#blog3"><i class="fas fa-arrow-left"></i> الدعم النفسي</a></li>
-            <li><a href="#blog4"><i class="fas fa-arrow-left"></i> الرحلات التعليمية</a></li>
-            <li><a href="#blog5"><i class="fas fa-arrow-left"></i> البرامج الصيفية</a></li>
-            <li><a href="#blog6"><i class="fas fa-arrow-left"></i> التغذية الصحية</a></li>
+            <li><a href="#blog1">التعليم التفاعلي: مستقبل التعلم</a></li>
+            <li><a href="#blog3">كيفية بناء ثقة الطفل بنفسه</a></li>
+            <li><a href="#blog6">التغذية الصحية للأطفال</a></li>
+            <li><a href="#blog5">البرامج الصيفية المفيدة</a></li>
           </ul>
         </div>
         
-        <div class="footer-col">
-          <h4>النشرة الإخبارية</h4>
-          <p>اشترك في نشرتنا الإخبارية لتصلك آخر أخبار المدرسة وفعالياتها ومقالاتنا التعليمية</p>
-          <form style="margin-top: 20px;">
-            <div class="form-group">
-              <input type="email" class="form-control" placeholder="بريدك الإلكتروني">
-            </div>
-            <button type="submit" class="btn btn-primary">اشترك الآن</button>
-          </form>
+        <div class="footer-column">
+          <h3>اتصل بنا</h3>
+          <p><i class="fas fa-map-marker-alt"></i> شارع التربية، الرياض، المملكة العربية السعودية</p>
+          <p><i class="fas fa-phone"></i> +966 11 123 4567</p>
+          <p><i class="fas fa-envelope"></i> info@alam-altufula.edu.sa</p>
         </div>
       </div>
-    </div>
-    
-    <div class="copyright">
-      <div class="container">
-        <p>جميع الحقوق محفوظة &copy; 2024 مدرسة عالم الطفولة الابتدائية | تصميم وتطوير فريق المدرسة</p>
+      
+      <div class="copyright">
+        <p>جميع الحقوق محفوظة © مدرسة عالم الطفولة الابتدائية 2024</p>
       </div>
     </div>
   </footer>
@@ -846,33 +912,60 @@
       duration: 1000,
       once: true
     });
-
+    
     // Mobile menu toggle
-    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
-    menuBtn.addEventListener('click', () => {
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+      mobileMenuBtn.setAttribute('aria-expanded', !expanded);
       navLinks.classList.toggle('active');
+      
+      // Toggle icon
+      const icon = mobileMenuBtn.querySelector('i');
+      if (navLinks.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
     });
     
-    // Close menu when clicking on a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target) && navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
-      });
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        
+        // Reset icon
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
     });
     
-    // Simple blog navigation simulation
-    document.querySelectorAll('.read-more').forEach(link => {
-      link.addEventListener('click', function(e) {
+    // Newsletter form submission
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        const targetSection = document.querySelector(this.getAttribute('href'));
-        document.querySelectorAll('section').forEach(section => {
-          section.style.display = 'none';
-        });
-        targetSection.style.display = 'block';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const email = this.querySelector('input[name="email"]').value;
+        
+        // Simple validation
+        if (!email || !email.includes('@')) {
+          alert('الرجاء إدخال بريد إلكتروني صحيح');
+          return;
+        }
+        
+        // Send form data to server (simulated)
+        setTimeout(() => {
+          alert('تم الاشتراك بنجاح! شكراً لتسجيلك في قائمة المراسلة.');
+          this.reset();
+        }, 500);
       });
-    });
+    }
   </script>
 </body>
 </html>
