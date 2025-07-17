@@ -443,14 +443,167 @@
       opacity: 0.7;
     }
 
+    /* Article Detail Styles */
+    .article-detail {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 2000;
+      overflow-y: auto;
+      padding: 40px 20px;
+    }
+    
+    .article-content {
+      background: white;
+      border-radius: var(--border-radius);
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 40px;
+      position: relative;
+    }
+    
+    .close-article {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      cursor: pointer;
+      z-index: 10;
+      background: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--box-shadow);
+    }
+    
+    .blog-hero {
+      background: linear-gradient(rgba(76, 175, 80, 0.8), rgba(33, 150, 243, 0.8)), 
+        url('https://images.unsplash.com/photo-1588072432904-843af37f03ed?auto=format&fit=crop&w=1950&q=80') center/cover;
+      padding: 100px 20px;
+      text-align: center;
+      color: white;
+      border-radius: var(--border-radius);
+      margin-bottom: 40px;
+    }
+    
+    .blog-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .blog-meta-detail {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+    
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .article-body {
+      line-height: 1.9;
+      font-size: 1.1rem;
+    }
+    
+    .article-body h2 {
+      color: var(--primary-color);
+      margin: 30px 0 20px;
+      border-right: 4px solid var(--secondary-color);
+      padding-right: 15px;
+    }
+    
+    .article-body h3 {
+      color: var(--accent-color);
+      margin: 25px 0 15px;
+    }
+    
+    .article-body ul {
+      padding-right: 30px;
+      margin: 15px 0;
+    }
+    
+    .article-body li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-right: 20px;
+    }
+    
+    .article-body li:before {
+      content: "•";
+      position: absolute;
+      right: 0;
+      color: var(--secondary-color);
+      font-size: 1.5rem;
+    }
+    
+    .highlight-box {
+      background: rgba(76, 175, 80, 0.1);
+      border-right: 4px solid var(--primary-color);
+      padding: 25px;
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      margin: 30px 0;
+    }
+    
+    .social-share {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 40px 0 20px;
+    }
+    
+    .social-btn {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+    
+    .social-btn.facebook { background: #3b5998; }
+    .social-btn.twitter { background: #1da1f2; }
+    .social-btn.linkedin { background: #0077b5; }
+    .social-btn.whatsapp { background: #25d366; }
+    
+    .social-btn:hover {
+      transform: translateY(-3px);
+    }
+    
+    .related-posts {
+      background: var(--light-color);
+      padding: 40px;
+      border-radius: var(--border-radius);
+      margin-top: 40px;
+    }
+
     /* Responsive Styles */
     @media (max-width: 992px) {
-      .post-img {
-        height: 350px;
+      .hero h1 {
+        font-size: 2.3rem;
       }
       
-      .post-content {
-        padding: 30px;
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .blog-hero h1 {
+        font-size: 2rem;
       }
     }
 
@@ -493,32 +646,35 @@
         font-size: 1.8rem;
       }
       
-      .post-img {
-        height: 250px;
+      .blog-meta-detail {
+        flex-direction: column;
+        gap: 15px;
       }
       
-      .author-box {
-        flex-direction: column;
-        text-align: center;
+      .article-content {
+        padding: 25px;
       }
       
-      .newsletter-form {
-        flex-direction: column;
+      .related-posts {
+        padding: 25px;
       }
     }
 
     @media (max-width: 576px) {
-      .post-header h1 {
-        font-size: 1.8rem;
-      }
-      
-      .post-meta {
-        flex-direction: column;
-        gap: 10px;
-      }
-      
       .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .blog-hero {
+        padding: 70px 15px;
+      }
+      
+      .blog-hero h1 {
+        font-size: 1.6rem;
       }
     }
   </style>
@@ -528,7 +684,7 @@
   
   <nav class="navbar" aria-label="القائمة الرئيسية">
     <div class="container nav-container">
-      <a href="index.html" class="logo">
+      <a href="#" class="logo">
         <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MCIgZmlsbD0iIzRDQUY1MCIvPjxwYXRoIGQ9Ik00MCAzMEg2MFY3MEg0MFoiIGZpbGw9IiNGRkZGRkYiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjQwIiByPSI4IiBmaWxsPSIjRkZGRkZGIi8+PHBhdGggZD0iTTQ1IDU1TDU1IDU1IDYwIDcwIDQwIDcwWiIgZmlsbD0iI0ZGRkZGRiIvPjwvc3ZnPg==" alt="شعار مدرسة عالم الطفولة الابتدائية">
         <div class="logo-text">
           <h1>مدرسة عالم الطفولة</h1>
@@ -536,11 +692,11 @@
         </div>
       </a>
       <ul class="nav-links" role="menubar">
-        <li role="none"><a href="index.html" role="menuitem">الرئيسية</a></li>
+        <li role="none"><a href="#" role="menuitem">الرئيسية</a></li>
         <li role="none"><a href="#services" role="menuitem">الخدمات</a></li>
         <li role="none"><a href="#team" role="menuitem">فريق العمل</a></li>
         <li role="none"><a href="#news" role="menuitem">الأخبار</a></li>
-        <li role="none"><a href="#" class="active" aria-current="page" role="menuitem">المدونة</a></li>
+        <li role="none"><a href="#blog" class="active" aria-current="page" role="menuitem">المدونة</a></li>
         <li role="none"><a href="#contact" role="menuitem">التواصل</a></li>
       </ul>
       <button class="mobile-menu-btn" aria-label="فتح القائمة" aria-expanded="false">
@@ -549,12 +705,16 @@
     </div>
   </nav>
 
-  <!-- Blog Hero Section -->
+  <!-- Hero Section -->
   <section class="hero" id="main-content">
     <div class="container">
       <div class="hero-content" data-aos="zoom-in">
         <h1>مدونة تربوية وتعليمية</h1>
         <p>استكشف مقالاتنا التعليمية المفيدة حول تنمية الطفل وتطوير المهارات والتربية الحديثة</p>
+        <div class="hero-buttons">
+          <a href="#blog" class="btn btn-primary">استكشف المدونة</a>
+          <a href="#newsletter" class="btn btn-outline">اشترك في النشرة</a>
+        </div>
       </div>
     </div>
   </section>
@@ -580,7 +740,7 @@
             </div>
             <h3>التعليم التفاعلي: مستقبل التعلم في القرن الحادي والعشرين</h3>
             <p>كيف يمكن للتعليم التفاعلي أن يحول تجربة التعلم لطفلك؟ استكشف فوائد وأساليب التعليم التفاعلي في تطوير مهارات التفكير النقدي والإبداع.</p>
-            <a href="#blog1" class="read-more">قراءة المقال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+            <a href="#" class="read-more" data-article="1">قراءة المقال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
           </div>
         </div>
         
@@ -596,7 +756,7 @@
             </div>
             <h3>تنمية الإبداع عند الأطفال: الأنشطة والفعاليات الفنية</h3>
             <p>اكتشف مجموعة من الأنشطة الإبداعية التي تحفز خيال طفلك وتنمي مواهبه الفنية. دليل شامل للأنشطة المناسبة لكل فئة عمرية.</p>
-            <a href="#blog2" class="read-more">قراءة المقال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+            <a href="#" class="read-more" data-article="2">قراءة المقال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
           </div>
         </div>
         
@@ -612,7 +772,7 @@
             </div>
             <h3>الدعم النفسي للأطفال: كيفية بناء ثقة الطفل بنفسه</h3>
             <p>أهمية الدعم النفسي في مرحلة الطفولة وكيف يمكن للوالدين والمعلمين بناء ثقة الطفل بنفسه وتطوير مهاراته الاجتماعية.</p>
-            <a href="#blog3" class="read-more">قراءة المقال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+            <a href="#" class="read-more" data-article="3">قراءة المقال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
           </div>
         </div>
         
@@ -628,7 +788,7 @@
             </div>
             <h3>فوائد الرحلات التعليمية في تنمية معارف الأطفال</h3>
             <p>كيف تساهم الرحلات التعليمية في توسيع آفاق الأطفال؟ دليل لأفضل الوجهات التعليمية وفوائدها التربوية.</p>
-            <a href="#blog4" class="read-more">قراءة المقال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+            <a href="#" class="read-more" data-article="4">قراءة المقال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
           </div>
         </div>
         
@@ -644,7 +804,7 @@
             </div>
             <h3>البرامج الصيفية: كيف تستثمر إجازة طفلك بشكل مفيد</h3>
             <p>أفضل البرامج الصيفية التعليمية والترفيهية التي تنمي مهارات طفلك وتستثمر وقت الإجازة بشكل مثمر.</p>
-            <a href="#blog5" class="read-more">قراءة المقال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+            <a href="#" class="read-more" data-article="5">قراءة المقال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
           </div>
         </div>
         
@@ -660,7 +820,7 @@
             </div>
             <h3>التغذية الصحية للأطفال: دليل الأطعمة المعززة للتعلم</h3>
             <p>كيف تؤثر التغذية على قدرات الطفل التعليمية؟ تعرف على الأطعمة المعززة للتركيز والذاكرة ونمو الدماغ.</p>
-            <a href="#blog6" class="read-more">قراءة المقال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+            <a href="#" class="read-more" data-article="6">قراءة المقال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
@@ -679,7 +839,7 @@
   </section>
 
   <!-- Newsletter Section -->
-  <section class="newsletter">
+  <section class="newsletter" id="newsletter">
     <div class="container">
       <h2>انضم إلى قائمة المراسلة</h2>
       <p>اشترك للحصول على أحدث المقالات والموارد التعليمية مباشرة إلى بريدك الإلكتروني</p>
@@ -708,7 +868,7 @@
         <div class="footer-column">
           <h3>روابط سريعة</h3>
           <ul class="footer-links">
-            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="#">الرئيسية</a></li>
             <li><a href="#about">من نحن</a></li>
             <li><a href="#programs">البرامج التعليمية</a></li>
             <li><a href="#team">فريق العمل</a></li>
@@ -719,10 +879,10 @@
         <div class="footer-column">
           <h3>المقالات الأكثر قراءة</h3>
           <ul class="footer-links">
-            <li><a href="#blog1">التعليم التفاعلي: مستقبل التعلم</a></li>
-            <li><a href="#blog3">كيفية بناء ثقة الطفل بنفسه</a></li>
-            <li><a href="#blog6">التغذية الصحية للأطفال</a></li>
-            <li><a href="#blog5">البرامج الصيفية المفيدة</a></li>
+            <li><a href="#" data-article="1">التعليم التفاعلي: مستقبل التعلم</a></li>
+            <li><a href="#" data-article="3">كيفية بناء ثقة الطفل بنفسه</a></li>
+            <li><a href="#" data-article="6">التغذية الصحية للأطفال</a></li>
+            <li><a href="#" data-article="5">البرامج الصيفية المفيدة</a></li>
           </ul>
         </div>
         
@@ -739,6 +899,57 @@
       </div>
     </div>
   </footer>
+
+  <!-- Article Detail Sections -->
+  <div class="article-detail" id="article-detail">
+    <div class="article-content">
+      <div class="close-article">&times;</div>
+      <div class="blog-hero">
+        <h1 id="article-title">التعليم التفاعلي: مستقبل التعلم</h1>
+        <div class="blog-meta-detail">
+          <div class="meta-item">
+            <i class="far fa-user"></i>
+            <span>إدارة المدرسة</span>
+          </div>
+          <div class="meta-item">
+            <i class="far fa-calendar"></i>
+            <span id="article-date">١٠ يونيو ٢٠٢٤</span>
+          </div>
+          <div class="meta-item">
+            <i class="far fa-clock"></i>
+            <span id="article-time">٥ دقائق قراءة</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="article-body" id="article-body">
+        <!-- Article content will be injected here -->
+      </div>
+      
+      <div class="social-share">
+        <p>شارك المقال:</p>
+        <a href="#" class="social-btn facebook" aria-label="مشاركة على فيسبوك">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="social-btn twitter" aria-label="مشاركة على تويتر">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="social-btn linkedin" aria-label="مشاركة على لينكدإن">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="#" class="social-btn whatsapp" aria-label="مشاركة على واتساب">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+      
+      <div class="related-posts">
+        <h3>مقالات ذات صلة</h3>
+        <div class="blog-container">
+          <!-- Related articles will be injected here -->
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
@@ -808,40 +1019,458 @@
       return emailRegex.test(email);
     }
     
-    // Simulate contact form validation if present
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        let isValid = true;
-        const name = this.querySelector('#name');
-        const email = this.querySelector('#email');
-        const message = this.querySelector('#message');
+    // Article data
+    const articles = [
+      {
+        id: 1,
+        title: "التعليم التفاعلي: مستقبل التعلم في القرن الحادي والعشرين",
+        date: "١٠ يونيو ٢٠٢٤",
+        time: "٥ دقائق قراءة",
+        category: "تعليمي",
+        content: `
+          <h2>المقدمة</h2>
+          <p>في عصر التكنولوجيا المتقدمة، لم يعد التعليم التقليدي كافيًا لمواكبة احتياجات الطفل العقلية والمعرفية. التعليم التفاعلي أصبح هو الحل العصري لتقديم تجربة تعليمية ممتعة وفعالة. فكيف يسهم هذا النوع من التعليم في تطوير مهارات الطفل؟</p>
+          
+          <h2>ما هو التعليم التفاعلي؟</h2>
+          <p>التعليم التفاعلي هو أسلوب تعليمي يعتمد على مشاركة الطفل بشكل فعّال في عملية التعلم، باستخدام أدوات رقمية مثل الشاشات الذكية، الألعاب التعليمية، الفيديوهات التوضيحية، والأنشطة الجماعية.</p>
+          
+          <div class="highlight-box">
+            <p>يختلف التعليم التفاعلي عن التعليم التقليدي في كونه يركز على تفاعل الطفل مع المحتوى التعليمي بدلاً من تلقي المعلومات بشكل سلبي.</p>
+          </div>
+          
+          <h2>فوائد التعليم التفاعلي للأطفال</h2>
+          <ul>
+            <li>تعزيز التركيز والانتباه من خلال تقديم المحتوى بطريقة جذابة وتفاعلية</li>
+            <li>تطوير مهارات حل المشكلات والتفكير النقدي عبر سيناريوهات تعليمية تفاعلية</li>
+            <li>تحسين مهارات التواصل والتعاون بين الأطفال من خلال الأنشطة الجماعية</li>
+            <li>زيادة دافعية الطفل نحو التعلم من خلال التحفيز البصري والحركي</li>
+            <li>تنمية الإبداع والتفكير خارج الصندوق عبر أدوات تعليمية مبتكرة</li>
+            <li>تعزيز الثقة بالنفس من خلال التغذية الراجعة الفورية والتشجيع المستمر</li>
+          </ul>
+          
+          <h2>أمثلة على تطبيقات التعليم التفاعلي</h2>
+          <ul>
+            <li><strong>الواقع المعزز (AR):</strong> استخدام الواقع المعزز في شرح المواد العلمية بطريقة تفاعلية تجعل التعلم تجربة ممتعة</li>
+            <li><strong>تطبيقات تعليمية:</strong> تطبيقات مثل Khan Academy Kids وClassDojo التي تقدم محتوى تعليمي تفاعلي</li>
+            <li><strong>الألواح الذكية:</strong> دروس تفاعلية عبر الألواح الذكية تسمح بمشاركة جميع الطلاب في العملية التعليمية</li>
+            <li><strong>الألعاب التعليمية:</strong> دمج التعليم مع الترفيه من خلال ألعاب تعليمية تحفز التفكير الإبداعي</li>
+          </ul>
+          
+          <h2>الخاتمة</h2>
+          <p>إن تبنّي التعليم التفاعلي في المدارس هو خطوة أساسية نحو بناء جيل ذكي، مستقل، ومبدع. في مدرسة "عالم الطفولة"، نحن نحرص على تطبيق هذا النهج لضمان أفضل تجربة تعلم لأطفالنا.</p>
+        `
+      },
+      {
+        id: 2,
+        title: "تنمية الإبداع عند الأطفال: الأنشطة والفعاليات الفنية",
+        date: "٢٥ مايو ٢٠٢٤",
+        time: "٦ دقائق قراءة",
+        category: "إبداع",
+        content: `
+          <h2>المقدمة</h2>
+          <p>الإبداع ليس موهبة فطرية فقط، بل هو مهارة يمكن تنميتها وتطويرها منذ الطفولة. في هذا المقال، نستكشف كيف يمكن للأنشطة الفنية أن تحفز خيال الطفل وتنمي قدراته الإبداعية.</p>
+          
+          <h2>أهمية تنمية الإبداع في مرحلة الطفولة</h2>
+          <p>الإبداع يساعد الأطفال على:</p>
+          <ul>
+            <li>تطوير مهارات حل المشكلات بطرق مبتكرة</li>
+            <li>التعبير عن مشاعرهم وأفكارهم بشكل صحي</li>
+            <li>تعزيز الثقة بالنفس وتقدير الذات</li>
+            <li>تحسين المهارات الحركية الدقيقة</li>
+            <li>تنمية التفكير النقدي والمرونة الذهنية</li>
+          </ul>
+          
+          <h2>أنشطة فنية لتنمية الإبداع حسب الفئة العمرية</h2>
+          
+          <h3>للأطفال من 3-5 سنوات</h3>
+          <ul>
+            <li>الرسم بالأصابع باستخدام ألوان آمنة</li>
+            <li>صنع أشكال من الصلصال الطيني</li>
+            <li>التلوين الحر على ورق كبير</li>
+            <li>صنع كولاج من قصاصات الورق الملون</li>
+          </ul>
+          
+          <h3>للأطفال من 6-8 سنوات</h3>
+          <ul>
+            <li>صنع دمى الظل وأداء عروض مسرحية</li>
+            <li>تصميم مجسمات ثلاثية الأبعاد</li>
+            <li>التصوير الفوتوغرافي البسيط</li>
+            <li>صنع ديكورات من مواد معاد تدويرها</li>
+          </ul>
+          
+          <h3>للأطفال من 9-12 سنوات</h3>
+          <ul>
+            <li>تعلم أساسيات الرسم المنظوري</li>
+            <li>صنع أفلام كارتونية قصيرة</li>
+            <li>تصميم أزياء وأزياء تنكرية</li>
+            <li>إنشاء مجلات فنية شخصية</li>
+          </ul>
+          
+          <div class="highlight-box">
+            <p>الأنشطة الفنية لا تحتاج إلى نتائج مثالية، بل التركيز على العملية الإبداعية وتجربة الطفل وتطوره.</p>
+          </div>
+          
+          <h2>دور المدرسة في تنمية الإبداع</h2>
+          <p>في "مدرسة عالم الطفولة"، نقدم برامج خاصة لتنمية الإبداع تشمل:</p>
+          <ul>
+            <li>ورش عمل فنية أسبوعية مع فنانين محترفين</li>
+            <li>معارض فنية فصلية لعرض إبداعات الأطفال</li>
+            <li>مسابقات إبداعية في الرسم والتصميم والكتابة الإبداعية</li>
+            <li>ركن الإبداع في الصفوف المجهز بأدوات فنية متنوعة</li>
+          </ul>
+          
+          <h2>الخاتمة</h2>
+          <p>تنمية الإبداع في مرحلة الطفولة هي استثمار في مستقبل الطفل، حيث تمنحه أدوات التعبير والتكيف والابتكار التي يحتاجها لمواجهة تحديات الحياة.</p>
+        `
+      },
+      {
+        id: 3,
+        title: "الدعم النفسي للأطفال: كيفية بناء ثقة الطفل بنفسه",
+        date: "١٢ مايو ٢٠٢٤",
+        time: "٧ دقائق قراءة",
+        category: "نفسي",
+        content: `
+          <h2>المقدمة</h2>
+          <p>الثقة بالنفس هي حجر الأساس في تكوين شخصية الطفل. لكنها لا تُولد مع الطفل، بل تُبنى بالتدريج من خلال التربية والدعم والتجارب الإيجابية.</p>
+          
+          <h2>علامات ضعف الثقة بالنفس عند الأطفال</h2>
+          <ul>
+            <li>التردد في اتخاذ القرارات حتى البسيطة منها</li>
+            <li>الخوف من التجربة أو التحدث أمام الآخرين</li>
+            <li>الانعزال أو تجنب الأنشطة الجماعية</li>
+            <li>التركيز المفرط على الأخطاء والنقد الذاتي</li>
+            <li>الميل إلى إلقاء اللوم على الآخرين عند الفشل</li>
+            <li>صعوبة تقبل المجاملات أو الإطراء</li>
+          </ul>
+          
+          <h2>طرق فعالة لتعزيز ثقة الطفل بنفسه</h2>
+          
+          <h3>في المنزل</h3>
+          <ul>
+            <li>منح الطفل مسؤوليات مناسبة لعمره</li>
+            <li>الاستماع له باهتمام واحترام آرائه</li>
+            <li>تجنب المقارنات مع الآخرين</li>
+            <li>المدح الوصفي للجهد وليس النتيجة فقط</li>
+            <li>تشجيعه على اتخاذ القرارات البسيطة</li>
+          </ul>
+          
+          <h3>في المدرسة</h3>
+          <ul>
+            <li>توفير بيئة صفية آمنة وداعمة</li>
+            <li>تعزيز التعلم القائم على المشاريع</li>
+            <li>تقديم فرص للقيادة والمسؤولية</li>
+            <li>التغذية الراجعة الإيجابية البناءة</li>
+            <li>أنشطة تعزيز العمل الجماعي</li>
+          </ul>
+          
+          <div class="highlight-box">
+            <p>الثقة بالنفس لا تعني الغرور، بل هي شعور الطفل بقيمته الذاتية وقدرته على مواجهة التحديات والتعلم من الأخطاء.</p>
+          </div>
+          
+          <h2>دور المدرسة في دعم ثقة الطفل</h2>
+          <p>في "مدرسة عالم الطفولة"، نعتمد على برامج تحفّز الاستقلالية، وورشات تفاعلية تعزز المهارات الشخصية والاجتماعية. نحن نؤمن بأن البيئة التعليمية الداعمة هي أساس بناء الشخصية الواثقة.</p>
+          
+          <h2>الخاتمة</h2>
+          <p>عندما يشعر الطفل أنه محبوب، مقدَّر، وله دور، تنمو ثقته بنفسه ويصبح أكثر استعدادًا لمواجهة تحديات الحياة بثبات وإيجابية.</p>
+        `
+      },
+      {
+        id: 4,
+        title: "فوائد الرحلات التعليمية في تنمية معارف الأطفال",
+        date: "٢٨ أبريل ٢٠٢٤",
+        time: "٦ دقائق قراءة",
+        category: "رحلات",
+        content: `
+          <h2>المقدمة</h2>
+          <p>الرحلات التعليمية ليست مجرد رحلات ترفيهية، بل هي أدوات تعليمية قوية تربط الطفل بالعالم الحقيقي وتعزز فهمه للمفاهيم النظرية.</p>
+          
+          <h2>فوائد الرحلات التعليمية</h2>
+          <ul>
+            <li>ربط المعلومات النظرية بالتطبيق العملي</li>
+            <li>تنمية روح الاستكشاف والفضول العلمي</li>
+            <li>تعزيز التعلم الاجتماعي والعاطفي</li>
+            <li>توسيع آفاق الطفل ومعارفه الثقافية</li>
+            <li>تحسين الذاكرة البصرية والاستيعاب</li>
+            <li>تنمية مهارات الملاحظة والتحليل</li>
+          </ul>
+          
+          <h2>أفضل أنواع الرحلات التعليمية</h2>
+          
+          <h3>للأطفال الصغار (3-6 سنوات)</h3>
+          <ul>
+            <li>زيارة حديقة الحيوان</li>
+            <li>جولة في مزرعة تعليمية</li>
+            <li>زيارة متحف الأطفال التفاعلي</li>
+            <li>جولة في المكتبة العامة</li>
+          </ul>
+          
+          <h3>للأطفال المتوسطين (7-10 سنوات)</h3>
+          <ul>
+            <li>زيارة متحف العلوم</li>
+            <li>جولة في محطة إطفاء أو مركز شرطة</li>
+            <li>زيارة حديقة نباتية</li>
+            <li>رحلة إلى موقع أثري</li>
+          </ul>
+          
+          <h3>للأطفال الكبار (11-14 سنوات)</h3>
+          <ul>
+            <li>زيارة جامعة أو مركز أبحاث</li>
+            <li>جولة في متحف فني</li>
+            <li>زيارة مصنع أو مؤسسة صناعية</li>
+            <li>رحلة بيئية لدراسة النظم البيئية</li>
+          </ul>
+          
+          <div class="highlight-box">
+            <p>الرحلات التعليمية الناجحة هي التي تدمج بين المتعة والتعلم، وتقدم تجارب عملية تثري معارف الطفل.</p>
+          </div>
+          
+          <h2>تجربة "عالم الطفولة" في الرحلات التعليمية</h2>
+          <p>ننظم في مدرستنا رحلات تعليمية شهرية متنوعة، حيث نحرص على:</p>
+          <ul>
+            <li>ربط الرحلات بالمناهج الدراسية</li>
+            <li>إعداد أنشطة تفاعلية قبل وبعد الرحلة</li>
+            <li>التعاون مع متخصصين لتقديم شروحات علمية</li>
+            <li>توفير أوراق عمل وأنشطة متابعة</li>
+          </ul>
+          
+          <h2>الخاتمة</h2>
+          <p>الرحلات التعليمية هي جسور بين الفصل الدراسي والعالم الواقعي، تمنح الطفل فرصة لاستكشاف وتجربة ما يتعلمه في المدرسة بشكل عملي وممتع.</p>
+        `
+      },
+      {
+        id: 5,
+        title: "البرامج الصيفية: كيف تستثمر إجازة طفلك بشكل مفيد",
+        date: "١٥ أبريل ٢٠٢٤",
+        time: "٨ دقائق قراءة",
+        category: "صيفي",
+        content: `
+          <h2>المقدمة</h2>
+          <p>الصيف ليس فقط للعطلة، بل فرصة ذهبية لتعزيز مهارات الطفل من خلال برامج صيفية غنية بالتجربة والتعلم.</p>
+          
+          <h2>أهمية البرامج الصيفية</h2>
+          <ul>
+            <li>كسر الروتين اليومي وتجربة أنشطة جديدة</li>
+            <li>اكتشاف مواهب جديدة وقدرات كامنة</li>
+            <li>تعزيز الاستقلالية والقيادة والاعتماد على النفس</li>
+            <li>التواصل مع أقران خارج الإطار المدرسي</li>
+            <li>تنمية المهارات الاجتماعية والعاطفية</li>
+            <li>بناء ذكريات إيجابية وتجارب ممتعة</li>
+          </ul>
+          
+          <h2>أنواع البرامج الصيفية المفيدة</h2>
+          
+          <h3>البرامج التعليمية</h3>
+          <ul>
+            <li>دورات تعلم اللغات</li>
+            <li>ورش البرمجة وتصميم الألعاب</li>
+            <li>مخيمات العلوم والتجارب</li>
+            <li>دورات الكتابة الإبداعية</li>
+          </ul>
+          
+          <h3>البرامج الفنية</h3>
+          <ul>
+            <li>ورش الرسم والفنون التشكيلية</li>
+            <li>دورات المسرح والتمثيل</li>
+            <li>مخيمات الموسيقى والغناء</li>
+            <li>ورش التصوير الفوتوغرافي</li>
+          </ul>
+          
+          <h3>البرامج الرياضية</h3>
+          <ul>
+            <li>مخيمات السباحة والرياضات المائية</li>
+            <li>دورات الفنون القتالية</li>
+            <li>مخيمات كرة القدم وكرة السلة</li>
+            <li>أنشطة التسلق والمغامرات</li>
+          </ul>
+          
+          <div class="highlight-box">
+            <p>البرنامج الصيفي الناجح هو الذي يوازن بين المتعة والتعلم، ويناسب شخصية الطفل واهتماماته.</p>
+          </div>
+          
+          <h2>البرامج الصيفية في "عالم الطفولة"</h2>
+          <p>نوفر باقة متنوعة تشمل:</p>
+          <ul>
+            <li>مخيم الابتكار والروبوتات</li>
+            <li>برنامج الاستكشاف العلمي</li>
+            <li>ورش الفنون والإبداع</li>
+            <li>برنامج المغامرات والرياضات</li>
+            <li>دورات تعزيز المهارات الدراسية</li>
+          </ul>
+          
+          <h2>نصائح لاختيار البرنامج المناسب</h2>
+          <ul>
+            <li>راعِ ميول الطفل وشخصيته</li>
+            <li>تأكد من أمان المكان وخبرة المشرفين</li>
+            <li>اجعل الطفل يشارك في الاختيار</li>
+            <li>توازن بين التكلفة والجودة والفوائد</li>
+            <li>اختر برامج تتناسب مع عمر الطفل وقدراته</li>
+          </ul>
+          
+          <h2>الخاتمة</h2>
+          <p>الاستثمار في الصيف ليس ترفًا، بل هو استثمار في مهارات المستقبل، وفرص جديدة لطفلك ليكتشف ذاته ويعيش لحظات لا تُنسى.</p>
+        `
+      },
+      {
+        id: 6,
+        title: "التغذية الصحية للأطفال: دليل الأطعمة المعززة للتعلم",
+        date: "٢ أبريل ٢٠٢٤",
+        time: "٧ دقائق قراءة",
+        category: "صحة",
+        content: `
+          <h2>المقدمة</h2>
+          <p>تلعب التغذية السليمة دورًا جوهريًا في نمو الطفل الجسدي والعقلي. إن توفير نظام غذائي متوازن هو المفتاح لصحة قوية وأداء دراسي أفضل.</p>
+          
+          <h2>أهم عناصر النظام الغذائي الصحي للأطفال</h2>
+          
+          <h3>البروتينات</h3>
+          <p>مثل البيض، العدس، والدجاج لبناء العضلات والأنسجة</p>
+          
+          <h3>الكربوهيدرات المعقدة</h3>
+          <p>كالشوفان، البطاطس، والأرز البني للطاقة المستدامة</p>
+          
+          <h3>الفيتامينات والمعادن</h3>
+          <p>خاصة الحديد والكالسيوم لنمو العظام والدماغ</p>
+          
+          <h3>السوائل والماء</h3>
+          <p>ضرورية للتركيز والنشاط والوظائف الحيوية</p>
+          
+          <h2>أطعمة يُفضل تجنبها أو تقليلها</h2>
+          <ul>
+            <li>الأطعمة الجاهزة والمقلية الغنية بالدهون غير الصحية</li>
+            <li>المشروبات الغازية والسكريات المفرطة</li>
+            <li>الوجبات ذات الصبغات الصناعية والمواد الحافظة</li>
+            <li>الحلويات المصنعة التي تسبب ارتفاع سكر الدم</li>
+            <li>الأطعمة عالية الصوديوم التي تؤثر على ضغط الدم</li>
+          </ul>
+          
+          <h2>أفكار لوجبات مدرسية صحية</h2>
+          
+          <div class="highlight-box">
+            <p>الوجبة المدرسية الصحية يجب أن تحتوي على مصدر بروتين، كربوهيدرات معقدة، وخضروات أو فواكه.</p>
+          </div>
+          
+          <ul>
+            <li><strong>سندويش جبن مع خضار:</strong> سندويش جبن قليل الدسم مع شرائح خيار وجزر + حبة فاكهة</li>
+            <li><strong>زبادي طبيعي مع فواكه:</strong> زبادي طبيعي + تمر + مكعبات خيار أو جزر</li>
+            <li><strong>مافن الشوفان:</strong> مافن الشوفان المنزلي مع حفنة من المكسرات</li>
+            <li><strong>خضروات مع حمص:</strong> شرائح خضروات طازجة مع حمص + كعكة أرز</li>
+          </ul>
+          
+          <h2>نصائح لتشجيع الأطفال على تناول الطعام الصحي</h2>
+          <ul>
+            <li>شارك الأطفال في تحضير الوجبات</li>
+            <li>قدم الطعام بشكل جذاب ومبتكر</li>
+            <li>كون قدوة في تناول الطعام الصحي</li>
+            <li>قدم الخيارات الصحية بطريقة ممتعة</li>
+            <li>كن صبورًا واستمر في المحاولة</li>
+          </ul>
+          
+          <h2>دور الأهل والمدرسة</h2>
+          <p>في "مدرسة عالم الطفولة"، نساهم في توعية الأطفال بأهمية التغذية الصحية من خلال:</p>
+          <ul>
+            <li>ورشات غذائية تفاعلية</li>
+            <li>توفير وجبات صحية في المقصف المدرسي</li>
+            <li>أنشطة ترفيهية تعلم الأطفال اختيار الأطعمة الصحية</li>
+            <li>تعاون مع الأهل لتقديم نصائح غذائية</li>
+          </ul>
+          
+          <h2>الخاتمة</h2>
+          <p>صحة الطفل تبدأ من طبقه اليومي، وكل وجبة متوازنة هي استثمار في مستقبله الصحي والدراسي.</p>
+        `
+      }
+    ];
+    
+    // Article navigation
+    const articleDetail = document.getElementById('article-detail');
+    const articleTitle = document.getElementById('article-title');
+    const articleDate = document.getElementById('article-date');
+    const articleTime = document.getElementById('article-time');
+    const articleBody = document.getElementById('article-body');
+    const closeArticleBtn = document.querySelector('.close-article');
+    const readMoreLinks = document.querySelectorAll('.read-more');
+    const footerArticleLinks = document.querySelectorAll('.footer-links a[data-article]');
+    
+    // Function to open article
+    function openArticle(id) {
+      const article = articles.find(a => a.id === id);
+      if (article) {
+        articleTitle.textContent = article.title;
+        articleDate.textContent = article.date;
+        articleTime.textContent = article.time;
+        articleBody.innerHTML = article.content;
+        articleDetail.style.display = 'block';
+        document.body.style.overflow = 'hidden';
         
-        if (!name.value.trim()) {
-          alert('الرجاء إدخال اسمك كاملاً');
-          isValid = false;
-        }
+        // Add related articles
+        const relatedContainer = document.querySelector('.related-posts .blog-container');
+        relatedContainer.innerHTML = '';
         
-        if (isValid && !email.value.trim()) {
-          alert('الرجاء إدخال بريدك الإلكتروني');
-          isValid = false;
-        } else if (isValid && !isValidEmail(email.value.trim())) {
-          alert('الرجاء إدخال بريد إلكتروني صحيح');
-          isValid = false;
-        }
+        // Get 3 random related articles (excluding current)
+        const relatedArticles = articles
+          .filter(a => a.id !== id)
+          .sort(() => 0.5 - Math.random())
+          .slice(0, 3);
         
-        if (isValid && !message.value.trim()) {
-          alert('الرجاء إدخال رسالتك');
-          isValid = false;
-        }
+        relatedArticles.forEach(article => {
+          relatedContainer.innerHTML += `
+            <div class="blog-card">
+              <div class="blog-img">
+                <img src="https://images.unsplash.com/photo-1588072432904-843af37f03ed?auto=format&fit=crop&w=600&q=80" alt="مقال ذات صلة" loading="lazy">
+              </div>
+              <div class="blog-content">
+                <div class="blog-meta">
+                  <span class="blog-category">${article.category}</span>
+                  <span class="blog-date"><i class="far fa-calendar" aria-hidden="true"></i> ${article.date}</span>
+                </div>
+                <h3>${article.title}</h3>
+                <a href="#" class="read-more" data-article="${article.id}">قراءة المقال <i class="fas fa-arrow-left" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          `;
+        });
         
-        if (isValid) {
-          alert('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.');
-          this.reset();
-        }
-      });
+        // Add event listeners to new related articles
+        document.querySelectorAll('.related-posts .read-more').forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const articleId = parseInt(link.getAttribute('data-article'));
+            openArticle(articleId);
+          });
+        });
+      }
     }
+    
+    // Add event listeners to read more links
+    readMoreLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const articleId = parseInt(link.getAttribute('data-article'));
+        openArticle(articleId);
+      });
+    });
+    
+    // Add event listeners to footer article links
+    footerArticleLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const articleId = parseInt(link.getAttribute('data-article'));
+        openArticle(articleId);
+      });
+    });
+    
+    // Close article
+    closeArticleBtn.addEventListener('click', () => {
+      articleDetail.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+    
+    // Close article when clicking outside content
+    articleDetail.addEventListener('click', (e) => {
+      if (e.target === articleDetail) {
+        articleDetail.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
   </script>
 </body>
 </html>
